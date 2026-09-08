@@ -3,6 +3,18 @@
   "version": "12",
   "private": true,
   "license": "GPL-3.0-or-later",
+  "description": "Open source network and IT infrastructure monitoring, inventory and management for Linux and Docker",
+  "keywords": [
+    "network-monitoring",
+    "network-management",
+    "infrastructure-monitoring",
+    "snmp",
+    "network-inventory",
+    "linux",
+    "docker",
+    "open-source",
+    "it-infrastructure"
+  ],
   "workspaces": [
     "apps/*",
     "packages/*"
