@@ -7,8 +7,8 @@ A tag `full` identifica explicitamente a mesma imagem.
 
 **Tutorial / Manual HTML:**
 
-- Portugues: https://sachelaride.github.io/IronGrid-369/index.html
-- English: https://sachelaride.github.io/IronGrid-369/index-en.html
+- Portugues: https://sachelaride.github.io/IronGrid/Manual/index.html
+- English: https://sachelaride.github.io/IronGrid/Manual/index-en.html
 
 ---
 
