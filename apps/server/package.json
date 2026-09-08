@@ -5,6 +5,7 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "dev": "DEV_PORT=3002 tsx watch src/index.ts",
+        "prebuild": "prisma generate",
         "build": "tsc"
     },
     "dependencies": {
