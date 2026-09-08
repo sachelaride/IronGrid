@@ -58,6 +58,9 @@ RUN cd apps/server && npx prisma generate \
     && rm -f /usr/local/bin/npm /usr/local/bin/npx /app/package-lock.json
 COPY --chown=node:node --from=builder /app/apps/server/public ./apps/server/public
 
+# Manuais operacionais servidos pelo backend em /manual
+COPY --chown=node:node --from=builder /app/Manual ./Manual
+
 # Copiar frontend (servido estaticamente pelo backend)
 COPY --chown=node:node --from=builder /app/apps/web/dist ./apps/web/dist
 

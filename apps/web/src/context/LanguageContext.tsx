@@ -2797,9 +2797,9 @@ translations.FR = {
     'MANUAL_SUBTITLE': 'Documentation operationnelle integree au systeme',
     'MANUAL_OPEN_NEW': 'Ouvrir dans un nouvel onglet',
     'CONTRIBUTION_TITLE': 'Contribuer au projet',
-    'CONTRIBUTION_LIMIT': 'IronGrid est disponible gratuitement pour la supervision des infrastructures.',
-    'CONTRIBUTION_CONTACT': 'Pour le support ou la collaboration, contactez German Sachelaride par e-mail.',
-    'CONTRIBUTION_VOLUNTARY': 'Votre contribution est entierement volontaire. L utilisation gratuite d IronGrid ne depend pas d une contribution financiere.',
+    'CONTRIBUTION_LIMIT': 'Votre contribution volontaire aide au developpement d IronGrid et de ses prochaines versions.',
+    'CONTRIBUTION_CONTACT': 'Pour contribuer ou soutenir le projet, contactez German Sachelaride par e-mail.',
+    'CONTRIBUTION_VOLUNTARY': 'L utilisation d IronGrid ne depend pas d une contribution financiere.',
 };
 
 translations.DE = {
@@ -2820,9 +2820,9 @@ translations.DE = {
     'MANUAL_SUBTITLE': 'Betriebsdokumentation im System',
     'MANUAL_OPEN_NEW': 'In neuem Tab oeffnen',
     'CONTRIBUTION_TITLE': 'Zum Projekt beitragen',
-    'CONTRIBUTION_LIMIT': 'IronGrid ist kostenlos fuer die Infrastrukturueberwachung verfuegbar.',
-    'CONTRIBUTION_CONTACT': 'Fuer Support oder Zusammenarbeit kontaktieren Sie German Sachelaride per E-Mail.',
-    'CONTRIBUTION_VOLUNTARY': 'Ihr Beitrag ist vollkommen freiwillig. Die kostenlose Nutzung von IronGrid haengt nicht von einer finanziellen Unterstuetzung ab.',
+    'CONTRIBUTION_LIMIT': 'Ihr freiwilliger Beitrag hilft bei der Entwicklung von IronGrid und zukuenftigen Versionen.',
+    'CONTRIBUTION_CONTACT': 'Fuer einen Beitrag oder zur Unterstuetzung des Projekts kontaktieren Sie German Sachelaride per E-Mail.',
+    'CONTRIBUTION_VOLUNTARY': 'Die Nutzung von IronGrid haengt nicht von einer finanziellen Unterstuetzung ab.',
 };
 
 Object.assign(translations['PT-BR'], {
@@ -2842,9 +2842,9 @@ Object.assign(translations['PT-BR'], {
     'MANUAL_SUBTITLE': 'Documentação operacional integrada ao sistema',
     'MANUAL_OPEN_NEW': 'Abrir em nova aba',
     'CONTRIBUTION_TITLE': 'Contribua com o projeto',
-    'CONTRIBUTION_LIMIT': 'O IronGrid está disponível gratuitamente para monitoramento de infraestrutura.',
-    'CONTRIBUTION_CONTACT': 'Para suporte ou colaboração, entre em contato com German Sachelaride pelo e-mail sachelaride@gmail.com.',
-    'CONTRIBUTION_VOLUNTARY': 'Sua contribuição é totalmente voluntária. O uso gratuito do IronGrid não depende de contribuição financeira.',
+    'CONTRIBUTION_LIMIT': 'Sua contribuição voluntária ajuda no desenvolvimento do IronGrid e de suas futuras versões.',
+    'CONTRIBUTION_CONTACT': 'Para contribuir ou apoiar o projeto, entre em contato com German Sachelaride pelo e-mail sachelaride@gmail.com.',
+    'CONTRIBUTION_VOLUNTARY': 'O uso do IronGrid não depende de contribuição financeira.',
 });
 
 Object.assign(translations.US, {
@@ -2864,9 +2864,9 @@ Object.assign(translations.US, {
     'MANUAL_SUBTITLE': 'Operational documentation integrated into the system',
     'MANUAL_OPEN_NEW': 'Open in new tab',
     'CONTRIBUTION_TITLE': 'Contribute to the project',
-    'CONTRIBUTION_LIMIT': 'IronGrid is available free of charge for infrastructure monitoring.',
-    'CONTRIBUTION_CONTACT': 'For support or collaboration, contact German Sachelaride by email.',
-    'CONTRIBUTION_VOLUNTARY': 'Your contribution is completely voluntary. Free IronGrid usage does not depend on financial contribution.',
+    'CONTRIBUTION_LIMIT': 'Your voluntary contribution helps develop IronGrid and its future versions.',
+    'CONTRIBUTION_CONTACT': 'To contribute or support the project, contact German Sachelaride by email.',
+    'CONTRIBUTION_VOLUNTARY': 'Using IronGrid does not depend on a financial contribution.',
 });
 
 Object.assign(translations.ES, {
@@ -2886,9 +2886,9 @@ Object.assign(translations.ES, {
     'MANUAL_SUBTITLE': 'Documentacion operativa integrada al sistema',
     'MANUAL_OPEN_NEW': 'Abrir en nueva pestana',
     'CONTRIBUTION_TITLE': 'Contribuir al proyecto',
-    'CONTRIBUTION_LIMIT': 'IronGrid esta disponible gratis para el monitoreo de infraestructura.',
-    'CONTRIBUTION_CONTACT': 'Para soporte o colaboracion, contacte a German Sachelaride por e-mail.',
-    'CONTRIBUTION_VOLUNTARY': 'Su contribucion es totalmente voluntaria. El uso gratuito de IronGrid no depende de una contribucion financiera.',
+    'CONTRIBUTION_LIMIT': 'Su contribucion voluntaria ayuda al desarrollo de IronGrid y sus futuras versiones.',
+    'CONTRIBUTION_CONTACT': 'Para contribuir o apoyar el proyecto, contacte a German Sachelaride por e-mail.',
+    'CONTRIBUTION_VOLUNTARY': 'El uso de IronGrid no depende de una contribucion financiera.',
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
