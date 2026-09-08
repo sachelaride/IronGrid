@@ -1,0 +1,19 @@
+{
+  "name": "irongrid",
+  "version": "12",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build -w @irongrid/server && npm run build -w @irongrid/web && npm run build -w irongrid-agent",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "turbo": "^1.11.2"
+  }
+}

@@ -1,0 +1,473 @@
+<!doctype html>
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Manuel officiel étendu IronGrid V8.1</title><style>
+:root{--ink:#101828;--muted:#475467;--line:#d0d5dd;--brand:#0f766e;--soft:#ecfdf3;--soft2:#f0f9ff;--warn:#fff7ed;--danger:#fef2f2;--card:#ffffff;--bg:#f8fafc;}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55;font-size:15px}.page{max-width:1080px;margin:0 auto;background:#fff;min-height:100vh;padding:40px 54px;box-shadow:0 10px 40px rgba(15,23,42,.08)}
+h1{font-size:34px;line-height:1.12;margin:0 0 8px;color:#0f172a}h2{font-size:25px;margin:42px 0 14px;color:var(--brand);border-bottom:2px solid #ccfbf1;padding-bottom:8px}h3{font-size:19px;margin:28px 0 10px;color:#1f2937}h4{font-size:16px;margin:20px 0 8px;color:#344054}p{margin:8px 0 12px}.lead{font-size:18px;color:var(--muted);margin-bottom:20px}.meta{display:grid;grid-template-columns:160px 1fr;gap:6px 14px;background:var(--soft2);border:1px solid #bae6fd;padding:16px;border-radius:10px;margin:22px 0}.toc{columns:2;column-gap:40px}.toc a{display:block;margin:4px 0;color:#075985;text-decoration:none}.note,.warning,.result{border-left:5px solid var(--brand);padding:12px 14px;margin:16px 0;border-radius:8px;background:var(--soft)}.warning{border-color:#f97316;background:var(--warn)}.danger{border-left:5px solid #dc2626;background:var(--danger);padding:12px 14px;margin:16px 0;border-radius:8px}.result{border-color:#2563eb;background:#eff6ff}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{border:1px solid var(--line);border-radius:10px;padding:14px;background:var(--card)}
+table{border-collapse:collapse;width:100%;margin:12px 0 20px;font-size:13.5px}th,td{border:1px solid var(--line);padding:8px;vertical-align:top}th{background:#e6fffb;color:#134e4a;text-align:left}code{font-family:Consolas,monospace;background:#f2f4f7;border:1px solid #eaecf0;padding:1px 4px;border-radius:4px}pre{background:#101828;color:#f9fafb;border-radius:8px;padding:14px;white-space:pre-wrap}ul,ol{padding-left:22px}li{margin:4px 0}figure{margin:18px 0 26px;page-break-inside:avoid}img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px rgba(15,23,42,.08)}figcaption{font-size:12px;color:var(--muted);margin-top:6px;text-align:center}.flow{font-weight:bold;color:#0f766e;background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:12px;margin:12px 0}.small{font-size:12px;color:var(--muted)}.ok{color:#047857;font-weight:bold}.bad{color:#b91c1c;font-weight:bold}.kbd{border:1px solid #98a2b3;border-bottom-width:2px;border-radius:5px;padding:1px 6px;background:#f9fafb;font-family:Consolas,monospace;font-size:12px}.appendix{background:#f8fafc;border:1px solid #e4e7ec;border-radius:12px;padding:16px;margin:18px 0}.cover{padding:60px 0 32px;border-bottom:4px solid var(--brand);margin-bottom:28px}.tag{display:inline-block;background:#ccfbf1;color:#115e59;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:bold;margin:2px 4px 2px 0}@media print{body{background:#fff}.page{box-shadow:none;padding:24px}.toc{columns:1}h2{page-break-before:auto}figure{page-break-inside:avoid}.grid2{display:block}.card{margin-bottom:10px}}
+.langbar{position:sticky;top:0;z-index:20;background:#0f172a;color:#fff;margin:-40px -54px 28px;padding:10px 54px;display:flex;gap:10px;align-items:center;justify-content:flex-end;border-bottom:1px solid rgba(255,255,255,.14)}.langbar a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.35);padding:5px 10px;border-radius:6px;font-size:13px}.langbar a.active{background:#14b8a6;border-color:#14b8a6;color:#042f2e;font-weight:bold}.langbar span{font-size:13px;color:#cbd5e1}.dockerhub-callout{display:flex;align-items:center;justify-content:space-between;gap:14px;background:#0f172a;color:#fff;border:1px solid #1e293b;border-radius:10px;padding:14px 16px;margin:18px 0 20px;box-shadow:0 10px 24px rgba(15,23,42,.16)}.dockerhub-callout strong{display:block;font-size:15px;margin-bottom:2px}.dockerhub-callout code{background:#111827;border-color:#334155;color:#e0f2fe}.dockerhub-callout a{color:#67e8f9;text-decoration:none;font-weight:bold;white-space:nowrap}.dockerhub-callout a:hover{text-decoration:underline}@media(max-width:720px){.dockerhub-callout{align-items:flex-start;flex-direction:column}.dockerhub-callout a{white-space:normal}}.translate-note{background:#fffbeb;border:1px solid #fde68a;color:#713f12;border-radius:8px;padding:10px 12px;margin:0 0 18px;font-size:13px}.goog-te-banner-frame,.skiptranslate iframe{display:none!important}body{top:0!important}@media(max-width:720px){.page{padding:24px 18px}.langbar{margin:-24px -18px 22px;padding:10px 18px;justify-content:center;flex-wrap:wrap}.toc{columns:1}.meta{grid-template-columns:1fr}}@media print{.langbar,.translate-note,#google_translate_element{display:none}}
+</style></head><body><main class="page"><nav aria-label="Language selector" class="langbar"><span>Langue:</span><a href="index.html">Português</a><a href="index-en.html">English</a><a href="index-es.html">Español</a><a href="index-de.html">Deutsch</a><a class="active" href="index-fr.html">Français</a></nav><div class="translate-note">Cette page ouvre le même manuel HTML officiel et demande automatiquement la traduction française dans le navigateur.</div>
+<section class="cover"><h1>Manual Oficial Completo — IronGrid Mission Control</h1><p class="lead">Guia operacional para usuários finais, operadores, suporte e administradores.</p><div><span class="tag">Monitoramento</span><span class="tag">Inventário</span><span class="tag">SNMP/Syslog</span><span class="tag">Grafana</span><span class="tag">IPAM</span><span class="tag">Tickets</span><span class="tag">Agentes</span></div><div class="meta"><strong>Versão</strong><span>8.1 funcionalidades operacionais</span><strong>Atualização</strong><span>19 de agosto de 2026</span><strong>Imagem Docker</strong><span><a href="https://hub.docker.com/r/sachelaride/irongrid-limited-369">https://hub.docker.com/r/sachelaride/irongrid-limited-369</a></span><strong>Escopo</strong><span>Uso da interface, operação diária, criação de escaneamentos, cadastro e visualização de dispositivos, ativação de monitoramento, agentes, RustDesk, relatórios, manutenção e diagnóstico.</span></div></section>
+<div class="dockerhub-callout"><div><strong>Image officielle sur Docker Hub</strong><span>Installez avec Docker en utilisant <code>sachelaride/irongrid-limited-369:latest</code>.</span></div><a href="https://hub.docker.com/r/sachelaride/irongrid-limited-369">Ouvrir Docker Hub</a></div>
+<h2>Sumário</h2><nav class="toc">
+<a href="#visao">1. Visão geral</a>
+<a href="#acesso">2. Acesso e primeiro uso</a>
+<a href="#nav">3. Navegação principal</a>
+<a href="#monitoramento">4. Monitoramento</a>
+<a href="#syslog">5. Audit/Syslog</a>
+<a href="#alertas">6. Alertas</a>
+<a href="#grafana">7. Grafana</a>
+<a href="#inventario">8. Inventário</a>
+<a href="#mapas-ipam">9. Mapas e IPAM</a>
+<a href="#chamados">10. Central de Tickets</a>
+<a href="#relatorios">11. Relatórios</a>
+<a href="#ferramentas">12. Ferramentas avançadas</a>
+<a href="#agentes-rustdesk">13. Gestão de Agentes e RustDesk</a>
+<a href="#escaneamento-operacional">14. Escaneamento e descoberta de dispositivos</a>
+<a href="#colocar-monitoramento">15. Como colocar dispositivos em monitoramento</a>
+<a href="#visualizar-dispositivos">16. Como visualizar e acompanhar dispositivos</a>
+<a href="#fluxos">17. Fluxos completos</a>
+<a href="#trouble">18. Troubleshooting</a>
+<a href="#configuracao-avancada">19. Configuração avançada</a>
+<a href="#relatorios-avancados">20. Relatórios avançados</a>
+<a href="#manutencao-backup">21. Manutenção, backup e segurança operacional</a>
+<a href="#responsividade">22. Uso em telas diferentes</a>
+<a href="#glossario">23. Glossário</a>
+<a href="#apoie-projeto">24. Apoie o projeto</a>
+<a href="#historico">25. Histórico de versões</a>
+</nav>
+<h2 id="visao">1. Visão geral</h2>
+<p>O <strong>IronGrid Mission Control</strong> é uma plataforma para monitoramento e gestão de infraestrutura. Ele centraliza supervisão de dispositivos, métricas, eventos, inventário, chamados, relatórios, BI, Grafana e agentes.</p>
+<table><thead><tr><th>Área</th><th>Objetivo</th><th>Resultado esperado</th></tr></thead><tbody>
+<tr><td>Monitoramento</td><td>Acompanhar disponibilidade, tráfego, CPU, eventos e alertas.</td><td>Identificar degradação antes que ela vire indisponibilidade.</td></tr>
+<tr><td>Inventário</td><td>Centralizar ativos, IPs, localização, topologia e relacionamentos.</td><td>Manter base confiável para operação e auditoria.</td></tr>
+<tr><td>Chamados</td><td>Registrar incidentes, solicitações, evidências e histórico.</td><td>Garantir rastreabilidade e cumprimento de SLA.</td></tr>
+<tr><td>Relatórios</td><td>Transformar dados operacionais em visão técnica, gerencial e executiva.</td><td>Apoiar decisões, auditorias e prestação de contas.</td></tr>
+</tbody></table>
+<div class="warning"><strong>Cuidado operacional:</strong> exclusões, scans profundos, limpezas, reindexações, jobs manuais e mudanças de políticas devem ocorrer por usuários autorizados e, preferencialmente, em janela controlada.</div>
+<h2 id="acesso">2. Acesso e primeiro uso</h2>
+<p>Acesse o endereço informado pelo administrador, normalmente no formato <a href="http://IP_DO_SERVIDOR:3001"><code>http://IP_DO_SERVIDOR:3001</code></a>. O primeiro acesso é feito com usuário e senha padrão. Após entrar no sistema, o administrador pode alterar credenciais, cadastrar usuários, configurar permissões, definir setor, personalizar tema e escolher idioma da interface.</p><div class="note"><strong>Imagem Docker:</strong> <a href="https://hub.docker.com/r/sachelaride/irongrid-limited-369">https://hub.docker.com/r/sachelaride/irongrid-limited-369</a><br/><strong>Login inicial:</strong> usuário <code>admin</code> e senha <code>admin</code>.</div><h3>2.1 Login inicial e troca posterior de senha</h3><ol><li>Abra a URL do IronGrid no navegador.</li><li>Informe o usuário padrão admin e a senha padrão admin.</li><li>Após o primeiro login, acesse a engrenagem no canto superior direito da tela para revisar dados do usuário e alterar a senha quando necessário.</li><li>Evite manter a senha padrão em ambientes reais. A troca deve ser feita antes de iniciar a operação produtiva.</li></ol><h3>2.2 Administração de usuários</h3><p>No menu representado pela engrenagem, o administrador pode cadastrar novos usuários e organizar o acesso ao sistema conforme a responsabilidade de cada pessoa ou equipe.</p><table><thead><tr><th>Configuração</th><th>Finalidade</th><th>Boa prática</th></tr></thead><tbody><tr><td>Novo usuário</td><td>Criar contas individuais para operadores, suporte, administradores ou gestores.</td><td>Evite compartilhamento de login; cada pessoa deve ter sua própria conta.</td></tr><tr><td>Nível de administração</td><td>Definir permissões e escopo de acesso ao sistema.</td><td>Conceda apenas o nível necessário para a função do usuário.</td></tr><tr><td>E-mail</td><td>Vincular endereço para identificação, contato e possíveis notificações.</td><td>Use e-mails válidos e ligados à equipe responsável.</td></tr><tr><td>Senha</td><td>Definir ou atualizar a credencial de acesso.</td><td>Utilize senha forte e substitua credenciais padrão após a implantação.</td></tr><tr><td>Setor</td><td>Associar o usuário a uma área, equipe ou unidade operacional.</td><td>Ajuda na organização, rastreabilidade e distribuição de responsabilidades.</td></tr></tbody></table><h3>2.3 Temas, cores e idioma da interface</h3><p>Ao lado da engrenagem há um ícone de aparência/tema. Nele o usuário pode escolher temas visuais ou ajustar cores conforme preferência e legibilidade. Próximo a esse controle também existe a seleção de idioma da interface, permitindo alternar entre inglês, português e espanhol.</p><div class="result"><strong>Resultado esperado:</strong> após o primeiro acesso, o administrador deve ter confirmado o login, revisado a senha padrão, criado usuários necessários, definido níveis de administração, vinculado e-mail e setor, escolhido o tema adequado e validado o idioma da interface.</div><figure><img alt="Tela de login do IronGrid" src="imagens/tela-de-login-do-irongrid-8a88faf914.png"/><figcaption>Tela de login do IronGrid</figcaption></figure>
+<h3>Checklist do primeiro acesso</h3>
+<ul><li>Abrir o Painel Geral e verificar saúde global.</li><li>Conferir se há dispositivos cadastrados em Inventário &gt; Dispositivos.</li><li>Validar se os gráficos nativos carregam para pelo menos um ativo.</li><li>Confirmar se Audit/Syslog apresenta eventos quando configurado.</li><li>Testar alertas e destinatários.</li><li>Verificar permissões do usuário e perfil de acesso.</li><li>Gerar um relatório de teste antes da operação real.</li></ul>
+<div class="result"><strong>Resultado esperado:</strong> o operador consegue navegar, visualizar ativos, entender indicadores básicos e saber quais módulos dependem de configuração prévia.</div>
+<h2 id="nav">3. Navegação principal</h2>
+<table><thead><tr><th>Grupo</th><th>Descrição operacional</th></tr></thead><tbody>
+<tr><td>Monitoramento</td><td>Acompanha disponibilidade, gráficos SNMP, eventos Syslog e alertas por e-mail.</td></tr>
+<tr><td>Extensão Grafana</td><td>Permite consultar dashboards, gerar gráficos, gerar mapas e configurar integração Grafana.</td></tr>
+<tr><td>Inventário</td><td>Administra dispositivos, inventário, topologia, mapas customizados e IPAM.</td></tr>
+<tr><td>Chamados</td><td>Organiza tickets, base de conhecimento, SLA e manutenções programadas.</td></tr>
+<tr><td>Relatórios</td><td>Consolida inventário, PDFs e painéis de BI.</td></tr>
+<tr><td>Ferramentas</td><td>Reúne Discovery, configuração, manutenção, cron, agentes e recursos administrativos.</td></tr>
+</tbody></table>
+<h2 id="monitoramento">4. Monitoramento</h2>
+<h3>4.1 Painel Geral</h3>
+<p>O Painel Geral é a primeira tela para leitura do ambiente. Ele mostra nós ativos, cobertura, alertas críticos, tráfego, CPU e eventos recentes.</p>
+<figure><img alt="Painel Geral" src="imagens/painel-geral-6f5ddb6cc8.png"/><figcaption>Painel Geral</figcaption></figure>
+<figure><img alt="Painel executivo" src="imagens/painel-executivo-eb0a818c93.png"/><figcaption>Painel executivo</figcaption></figure>
+<figure><img alt="Painel estratégico" src="imagens/painel-estrategico-67b417076f.png"/><figcaption>Painel estratégico</figcaption></figure>
+<table><thead><tr><th>Indicador</th><th>Como interpretar</th><th>Ação recomendada</th></tr></thead><tbody>
+<tr><td>Nós ativos</td><td>Quantidade de dispositivos respondendo ou monitorados.</td><td>Comparar com o inventário esperado e investigar quedas.</td></tr>
+<tr><td>Cobertura</td><td>Percentual do ambiente sob monitoramento.</td><td>Cadastrar ativos ausentes ou corrigir coleta.</td></tr>
+<tr><td>Alertas críticos</td><td>Eventos que exigem atenção imediata.</td><td>Priorizar investigação e abrir/atualizar chamado.</td></tr>
+<tr><td>Tráfego de rede</td><td>Volume e comportamento de RX/TX.</td><td>Comparar com baseline e investigar picos.</td></tr>
+<tr><td>CPU</td><td>Uso de processamento nos ativos coletados.</td><td>Identificar saturação, processos anormais ou falta de capacidade.</td></tr>
+</tbody></table>
+<h3>4.2 Gráficos Nativos</h3>
+<p>Os Gráficos Nativos mostram métricas SNMP diretamente no IronGrid. Selecione o dispositivo, aguarde o estado conectado e avalie as interfaces.</p>
+<figure><img alt="Gráficos Nativos" src="imagens/graficos-nativos-1b01ba4f65.png"/><figcaption>Gráficos Nativos</figcaption></figure>
+<figure><img alt="Seleção de dispositivo nos Gráficos Nativos" src="imagens/selecao-de-dispositivo-nos-graficos-nativos-d3e3dfcfcd.png"/><figcaption>Seleção de dispositivo nos Gráficos Nativos</figcaption></figure>
+<h4 id="graficos-inventario-monitoramento">4.2.1 Dispositivo vindo do inventário e seleção de interfaces</h4><p>Nesta tela você visualiza os gráficos que foram adicionados depois da localização do ativo ou da inclusão manual no inventário. O monitoramento em gráfico é configurado a partir do ativo selecionado, permitindo definir quais interfaces serão acompanhadas, ajustar a leitura operacional e visualizar portas específicas ou o conjunto completo de portas quando aplicável.</p><figure><img alt="Ícone de monitoramento no inventário" src="imagens/monitoramento.png"/><figcaption>Inventário — ícone de monitoramento usado para enviar o dispositivo aos Gráficos Nativos</figcaption></figure><ol><li>Acesse Inventário &gt; Dispositivos e localize o ativo desejado.</li><li>No exemplo de um switch, selecione o ícone de monitoramento do dispositivo.</li><li>Configure as interfaces do ativo selecionado, escolhendo quais portas devem entrar no acompanhamento gráfico.</li><li>O dispositivo passa a aparecer em Gráficos Nativos para análise operacional.</li><li>Escolha a interface que deseja acompanhar, como porta 01, porta 10 ou outra porta disponível.</li><li>Quando necessário, selecione todas as portas para comparar tráfego, identificar picos e entender o comportamento geral do switch.</li></ol><div class="note"><strong>Exemplo prático:</strong> ao selecionar o ícone de monitoramento de um switch no inventário, o operador configura as interfaces do ativo selecionado. Depois disso, o ativo fica disponível nos Gráficos Nativos, onde é possível acompanhar a porta 01, a porta 10 ou todas as portas para visualizar RX/TX e comparar o uso das interfaces.</div><table><thead><tr><th>Exemplo observado</th><th>Interpretação</th><th>Ação</th></tr></thead><tbody>
+<tr><td>RX/TX estável e previsível</td><td>Comportamento normal para o período.</td><td>Registrar baseline e acompanhar tendência.</td></tr>
+<tr><td>Pico abrupto</td><td>Transferência intensa, backup, atualização ou possível anomalia.</td><td>Correlacionar com horário, usuário, serviço e Syslog.</td></tr>
+<tr><td>Linha próxima de zero</td><td>Interface sem uso, desligada ou sem coleta.</td><td>Confirmar se a interface deveria estar ativa.</td></tr>
+<tr><td>Uso prolongado acima de 90%</td><td>Risco de saturação ou perda de desempenho.</td><td>Abrir chamado, escalar e avaliar capacidade.</td></tr>
+<tr><td>Gráfico vazio</td><td>Dispositivo desconectado, SNMP incorreto ou falha de coleta.</td><td>Testar conectividade, comunidade SNMP e logs.</td></tr>
+</tbody></table>
+<div class="flow">Procedimento: Painel Geral → escolher ativo → Gráficos Nativos → analisar RX/TX → comparar baseline → consultar Syslog → abrir chamado se houver impacto.</div>
+<h2 id="syslog">5. Audit/Syslog</h2>
+<p>O módulo Audit/Syslog centraliza eventos recebidos dos dispositivos e do IronGrid. É uma das funcionalidades mais úteis para entender o que está ocorrendo em switches, roteadores, firewalls, servidores e outros ativos, porque permite acompanhar logs em tempo real por dispositivo, porta/interface, severidade, período e palavras-chave.</p>
+<figure><img alt="Audit / Syslog" src="imagens/audit-syslog-f6ee09617e.png"/><figcaption>Audit / Syslog</figcaption></figure>
+<h3 id="syslog-tempo-real">5.1 Monitoramento de logs em tempo real</h3><p>Para investigar um ativo específico, selecione o dispositivo que deseja verificar, escolha a porta ou interface relacionada quando essa informação estiver disponível, defina a severidade desejada e inicie o acompanhamento. Esse fluxo ajuda a observar eventos em tempo real e correlacionar mensagens de log com comportamento de tráfego, falhas de interface, quedas, autenticações, alterações de estado e alertas.</p><ol><li>Acesse Audit/Syslog.</li><li>Selecione o dispositivo que será investigado, como um switch ou roteador.</li><li>Escolha a porta/interface quando o log ou o filtro permitir esse nível de detalhe.</li><li>Defina a severidade que deseja acompanhar, por exemplo crítico, aviso, informação ou debug.</li><li>Inicie o monitoramento e acompanhe as mensagens em tempo real.</li><li>Correlacione os eventos com Gráficos Nativos, alertas e chamados relacionados.</li></ol><div class="warning"><strong>Alerta sobre volume de logs:</strong> todo log monitorado pode gerar muito texto e, enquanto estiver sendo recebido, será salvo no banco de dados. Dependendo da severidade escolhida, da quantidade de dispositivos e do volume de eventos, a base pode crescer bastante. Esse comportamento é esperado em ambientes com muitos eventos, mas deve ser acompanhado pelo administrador.</div><div class="note"><strong>Como controlar crescimento:</strong> utilize as rotinas em Ferramentas &gt; Manutenção para limpeza de dados antigos, retenção de logs e limpeza de métricas de gráficos quando necessário. Com política de retenção adequada, o volume de logs não deve ser motivo de preocupação operacional.</div><table><thead><tr><th>Filtro</th><th>Quando usar</th><th>Cuidado</th></tr></thead><tbody><tr><td>Dispositivo</td><td>Investigar um ativo específico, como switch, roteador ou firewall.</td><td>Confirme se o equipamento selecionado é o ativo correto.</td></tr><tr><td>Porta/interface</td><td>Analisar eventos ligados a uma porta física ou lógica.</td><td>Nem todo log informa porta; use quando o dado estiver disponível.</td></tr><tr><td>Severidade</td><td>Reduzir ou ampliar o volume de eventos monitorados.</td><td>Debug e informação podem gerar grande volume em pouco tempo.</td></tr><tr><td>Período/palavra-chave</td><td>Localizar eventos em uma janela ou mensagem específica.</td><td>Filtros amplos retornam mais dados e podem dificultar a leitura.</td></tr></tbody></table><ul><li>Identifique o equipamento afetado.</li><li>Defina o período provável da ocorrência.</li><li>Filtre pela severidade.</li><li>Pesquise palavras-chave do evento.</li><li>Correlacione horário do evento com gráficos RX/TX, CPU e alertas.</li><li>Registre evidências no chamado.</li><li>Confirme se o evento continua ocorrendo após a correção.</li></ul>
+<table><thead><tr><th>Severidade</th><th>Uso operacional</th></tr></thead><tbody>
+<tr><td>Crítico</td><td>Risco imediato ao serviço ou segurança.</td></tr>
+<tr><td>Aviso</td><td>Condição que pode evoluir para falha.</td></tr>
+<tr><td>Informação</td><td>Evento normal ou informativo.</td></tr>
+<tr><td>Debug</td><td>Detalhe técnico para diagnóstico avançado.</td></tr>
+</tbody></table>
+<h2 id="alertas">6. Alertas</h2>
+<p>Alertas por e-mail notificam falhas, degradação e eventos relevantes. Um sistema de monitoramento só se torna realmente útil quando consegue avisar as pessoas certas no momento certo, por isso o IronGrid organiza alertas por níveis e permite definir destinatários, limiares e tempo mínimo de ocorrência antes do disparo.</p>
+<figure><img alt="Alertas por e-mail" src="imagens/alertas-por-e-mail-83f5a1bf28.png"/><figcaption>Alertas por e-mail</figcaption></figure>
+<h3 id="alertas-niveis-configuracao">6.1 Níveis e configuração de alertas</h3><p>A configuração trabalha com quatro níveis de alerta. O primeiro nível pode ser usado para não alertar nada, mantendo o monitoramento sem envio de e-mail. Os demais níveis são definidos pelo usuário conforme criticidade, latência, tráfego, tempo do evento e destinatários que devem ser avisados.</p><figure><img alt="Tela de configuração de alertas" src="imagens/alertas.png"/><figcaption>Configuração de alertas — níveis, limiares, tempo de ocorrência e destinatários</figcaption></figure><table><thead><tr><th>Nível</th><th>Uso sugerido</th><th>Exemplo operacional</th></tr></thead><tbody><tr><td>Não alertar</td><td>Usar quando o ativo deve ser observado, mas sem disparo de e-mail.</td><td>Ambiente de teste, ativo em implantação ou coleta apenas informativa.</td></tr><tr><td>L1</td><td>Primeiro atendimento ou eventos de baixa criticidade.</td><td>Avisar equipe de plantão quando houver anomalia inicial.</td></tr><tr><td>L2</td><td>Escalação técnica ou condição persistente com impacto potencial.</td><td>Configurar, por exemplo, latência acima de 15 ms ou tráfego acima de 500 MB durante o tempo definido, alertando e-mails específicos.</td></tr><tr><td>L3</td><td>Evento crítico, recorrente ou de alto impacto.</td><td>Avisar especialistas, coordenação ou responsáveis finais.</td></tr></tbody></table><ol><li>Escolha o ativo, grupo ou regra que será monitorado.</li><li>Defina o nível de alerta, incluindo a opção de não alertar quando o envio não for necessário.</li><li>Configure os limiares, como latência, tráfego, disponibilidade ou outro indicador suportado pela regra.</li><li>Defina por quanto tempo o evento precisa ocorrer antes de gerar notificação, reduzindo alertas por oscilações rápidas.</li><li>Informe um ou mais e-mails que devem receber o alerta naquele nível.</li><li>Salve a regra e faça um teste de envio para validar SMTP, destinatários e texto da notificação.</li></ol><div class="note"><strong>Exemplo L2:</strong> configurar uma regra para alertar determinados e-mails quando a latência passar de 15 ms ou quando o tráfego atingir 500 MB pelo tempo mínimo definido. Ajuste os valores conforme o baseline real do ambiente.</div><table><thead><tr><th>Elemento</th><th>Descrição</th><th>Boa prática</th></tr></thead><tbody>
+<tr><td>L1</td><td>Primeiro atendimento.</td><td>Equipe de plantão ou suporte inicial.</td></tr>
+<tr><td>L2</td><td>Escalação técnica.</td><td>Especialista ou supervisor técnico.</td></tr>
+<tr><td>L3</td><td>Escalação crítica.</td><td>Gestão, coordenação ou responsável final.</td></tr>
+<tr><td>Renotificação</td><td>Reenvio enquanto a condição persistir.</td><td>Evitar intervalo curto demais para não gerar ruído.</td></tr>
+<tr><td>Limiares</td><td>Condições que disparam alertas.</td><td>Ajustar por baseline real do ambiente.</td></tr>
+</tbody></table>
+<ul><li>Teste cada regra após salvar.</li><li>Revise destinatários e SMTP quando alertas não chegarem.</li><li>Aumente limiares ou remova duplicidades se houver excesso de notificações.</li><li>Documente quem recebe cada nível de escalação.</li></ul>
+<h2 id="grafana">7. Extensão Grafana</h2>
+<p>A Extensão Grafana é um recurso adicional para equipes que já utilizam Grafana ou preferem explorar dashboards externos com maior liberdade visual. Ela permite configurar comunicação por token, consultar dashboards técnicos, gerar gráficos, exportar conjuntos de gráficos, criar mapas e administrar itens do Grafana diretamente pelo IronGrid.</p>
+<figure><img alt="Dashboards externos Grafana" src="imagens/dashboards-externos-grafana-30befed273.png"/><figcaption>Dashboards externos Grafana</figcaption></figure>
+<figure><img alt="Gerador de gráficos Grafana" src="imagens/gerador-de-graficos-grafana-a744d029b8.png"/><figcaption>Gerador de gráficos Grafana</figcaption></figure>
+<figure><img alt="Gerador de mapas Grafana" src="imagens/gerador-de-mapas-grafana-cc9e792e46.png"/><figcaption>Gerador de mapas Grafana</figcaption></figure>
+<figure><img alt="Configuração Grafana" src="imagens/configuracao-grafana-ff6f9d3261.png"/><figcaption>Configuração Grafana</figcaption></figure>
+<h3 id="grafana-operacao-integracao">7.1 Operação da integração Grafana</h3><p>Quando a instalação é iniciada com o perfil full, o Grafana já fica disponível no mesmo servidor, normalmente na porta padrão 3000. O IronGrid pode se comunicar com o Grafana por meio de token, permitindo criar e atualizar dashboards sem sair da interface principal.</p><ol><li>Acesse a área de configuração da Extensão Grafana no IronGrid.</li><li>Informe a URL do Grafana, normalmente http://IP_DO_SERVIDOR:3000 quando usado no perfil full.</li><li>Gere ou informe o token de comunicação usado para autorizar a integração.</li><li>Teste a conexão antes de criar dashboards, gráficos ou mapas.</li><li>Gere dashboards para o Grafana a partir dos dados disponíveis no IronGrid.</li><li>Exporte gráficos ou conjuntos de gráficos quando precisar organizar visualizações externas.</li><li>Altere o nome de dashboards ou painéis novos para evitar sobrescrever itens existentes.</li><li>Inclua, atualize ou exclua itens do Grafana diretamente pelo IronGrid quando a integração permitir.</li><li>Acesse o Grafana pela porta 3000 para visualizar e administrar os painéis da forma tradicional.</li></ol><table><thead><tr><th>Recurso</th><th>Uso</th><th>Cuidado</th></tr></thead><tbody><tr><td>Token Grafana</td><td>Autorizar comunicação entre IronGrid e Grafana.</td><td>Proteja o token e use o menor escopo possível.</td></tr><tr><td>Perfil full</td><td>Iniciar IronGrid com Grafana no mesmo ambiente Docker.</td><td>Confirme se a porta 3000 está liberada conforme a política local.</td></tr><tr><td>Dashboards</td><td>Gerar painéis técnicos, executivos ou estratégicos.</td><td>Use nomes claros e evite sobrescrever dashboards existentes.</td></tr><tr><td>Gráficos/conjuntos</td><td>Exportar visualizações ou grupos de métricas para análise externa.</td><td>Valide se os dados aparecem após o ciclo de coleta.</td></tr><tr><td>Mapas</td><td>Criar ou sincronizar visões de topologia/mapa no Grafana.</td><td>Revise nós, links e nomes antes de usar em produção.</td></tr><tr><td>Acesso direto</td><td>Abrir o Grafana em http://IP_DO_SERVIDOR:3000.</td><td>Use para administração tradicional do Grafana quando necessário.</td></tr></tbody></table><div class="warning"><strong>Atenção ao nome dos painéis:</strong> ao exportar dashboards, gráficos ou conjuntos de gráficos, altere o nome quando não quiser sobrescrever visualizações já existentes no Grafana.</div><table><thead><tr><th>Tarefa</th><th>Procedimento</th><th>Validação</th></tr></thead><tbody>
+<tr><td>Configurar integração</td><td>Informar URL, token e parâmetros operacionais.</td><td>Executar TESTAR CONEXÃO.</td></tr>
+<tr><td>Criar dashboard</td><td>Selecionar instância, consultas, visualização e salvar.</td><td>Abrir dashboard e confirmar dados.</td></tr>
+<tr><td>Gerar mapa</td><td>Selecionar mapa/topologia e sincronizar.</td><td>Confirmar nós, conexões e estados.</td></tr>
+<tr><td>Resolver dados ausentes</td><td>Verificar token, streams, polling e datasource.</td><td>Dados aparecem após ciclo de coleta.</td></tr>
+</tbody></table>
+<div class="warning"><strong>Segurança:</strong> tokens Grafana devem ser protegidos, rotacionados periodicamente e concedidos com o menor escopo necessário.</div>
+<h2 id="inventario">8. Inventário</h2>
+<p>O Inventário é o repositório central de ativos, IPs, localização, classificação, criticidade, garantia, fornecedor, relacionamentos, métricas habilitadas, ações administrativas, acesso remoto e informações coletadas por agente.</p>
+<figure><img alt="Dispositivos" src="imagens/dispositivos-b4acb18e4a.png"/><figcaption>Dispositivos</figcaption></figure>
+<figure><img alt="Gestão de inventário" src="imagens/gestao-de-inventario-9f048d8be6.png"/><figcaption>Gestão de inventário</figcaption></figure>
+<figure><img alt="Mapa de topologia" src="imagens/mapa-de-topologia-8e6e82ba91.png"/><figcaption>Mapa de topologia</figcaption></figure>
+<figure><img alt="Mapa de topologia - visualização alternativa" src="imagens/mapa-de-topologia-visualizacao-alternativa-58a0e73120.png"/><figcaption>Mapa de topologia - visualização alternativa</figcaption></figure>
+<figure><img alt="Mapas customizados" src="imagens/mapas-customizados-b072e468f2.png"/><figcaption>Mapas customizados</figcaption></figure>
+<figure><img alt="IPAM e Redes" src="imagens/ipam-e-redes-39483123ee.png"/><figcaption>IPAM e Redes</figcaption></figure>
+<h3 id="inventario-dispositivos-acoes">8.1 Inventário &gt; Dispositivos e ações do ativo</h3><p>Na listagem de dispositivos, cada ativo possui ícones de ação para consultar informações, ajustar configurações, editar cadastro, habilitar métricas e acessar recursos associados. Após um escaneamento ou inclusão manual, o operador deve revisar o dispositivo e decidir quais recursos serão ativados para aquele ativo.</p><figure><img alt="Ícones de comandos do inventário" src="imagens/comandos.png"/><figcaption>Inventário &gt; Dispositivos — ícones de comandos, informações e configurações do ativo</figcaption></figure><table><thead><tr><th>Ação</th><th>O que permite</th><th>Observação</th></tr></thead><tbody><tr><td>Monitoramento/métricas</td><td>Habilitar a parte de métricas do ativo pelo ícone de monitoramento já citado anteriormente.</td><td>Depois de habilitado, o dispositivo pode aparecer em Gráficos Nativos para seleção e configuração das interfaces.</td></tr><tr><td>Comandos/informações</td><td>Visualizar nome do dispositivo, dados operacionais, informações e configurações disponíveis pelos ícones de comandos.</td><td>Use para confirmar identidade do ativo antes de alterar configurações.</td></tr><tr><td>Nível de alerta por e-mail</td><td>Definir ou revisar o nível de alerta associado ao ativo.</td><td>Útil para máquinas, switches, roteadores e servidores com criticidade diferente.</td></tr><tr><td>Inventário por agente</td><td>Consultar softwares instalados, hardware, memória e outros dados detalhados.</td><td>Disponível somente quando o agente estiver instalado e conectado no dispositivo selecionado.</td></tr><tr><td>RustDesk</td><td>Abrir acesso remoto ao ativo quando configurado.</td><td>Depende de instalação por agente, perfil full/remote com RustDesk e chave configurada.</td></tr><tr><td>Editar dispositivo</td><td>Alterar cadastro, tipo, unidade, SNMP, observações e demais campos do ativo.</td><td>Mantenha IP, nome, tipo e criticidade padronizados.</td></tr></tbody></table><h3 id="inventario-habilitar-metricas">8.2 Habilitar métricas depois do escaneamento</h3><p>Depois que o dispositivo é encontrado pelo Discovery ou cadastrado manualmente, selecione o ícone de monitoramento para habilitar a coleta de métricas. Em equipamentos como switches, essa ação prepara o ativo para configuração das interfaces e análise nos Gráficos Nativos.</p><figure><img alt="Ícone de monitoramento do dispositivo" src="imagens/monitoramento.png"/><figcaption>Inventário — ícone para habilitar monitoramento/métricas do dispositivo</figcaption></figure><h3 id="inventario-agente-detalhado">8.3 Inventário detalhado via agente</h3><p>Em endpoints e servidores com agente instalado, o inventário pode apresentar informações mais profundas, como softwares instalados, dados de hardware, memória, componentes e outros detalhes coletados localmente. Sem o agente, o sistema ainda pode manter dados básicos do ativo, mas não terá a mesma profundidade de inventário lógico e físico.</p><figure><img alt="Tela de inventário do ativo" src="imagens/Inventario.png"/><figcaption>Inventário do ativo — informações detalhadas e acesso quando coletado por agente</figcaption></figure><h3 id="inventario-rustdesk">8.4 Acesso remoto via RustDesk</h3><p>Quando o agente está instalado no dispositivo e o servidor foi implantado com o perfil full ou remote incluindo RustDesk, o inventário pode exibir a opção de acesso remoto. Para isso, a chave pública do RustDesk deve estar configurada no IronGrid, procedimento abordado na instalação e gestão de agentes.</p><div class="warning"><strong>Controle de acesso:</strong> use RustDesk apenas em ativos autorizados e com responsabilidade operacional definida. A chave privada do servidor deve permanecer protegida.</div><h3 id="inventario-edicao-massa">8.5 Editar dispositivo e ações em massa</h3><p>A opção de editar dispositivo permite corrigir ou completar dados do ativo, como nome, IP, tipo, unidade, SNMP, criticidade, setor e observações. Quando mais de um dispositivo é selecionado, o IronGrid pode oferecer ações em massa, como definir unidade, alterar tipo, atualizar SNMP, exportar dados e aplicar outras configurações úteis para organização do ambiente.</p><figure><img alt="Tela de edição do dispositivo" src="imagens/dispositivo.png"/><figcaption>Edição do dispositivo — ajustes de cadastro e parâmetros operacionais</figcaption></figure><figure><img alt="Seleção de múltiplos dispositivos no inventário" src="imagens/dois dispositivos.png"/><figcaption>Seleção múltipla — ações em massa para unidade, tipo, SNMP, exportação e configurações</figcaption></figure><ol><li>Revise os ativos encontrados pelo Discovery antes de habilitar recursos em massa.</li><li>Use ações em massa para padronizar unidade, tipo e SNMP quando os dispositivos pertencem ao mesmo grupo operacional.</li><li>Exporte dados do inventário para auditoria, conferência ou documentação.</li><li>Evite aplicar alterações coletivas em ativos misturados sem validar filtros e seleção.</li></ol><h3 id="gestao-inventario-operacoes-taticas">8.6 Gestão de Inventário e operações táticas</h3><p>A Gestão de Inventário reúne ajustes administrativos e operacionais do nó. Nessa área, o operador pode alterar setor, alterar unidade, classificar o nó e acessar ações rápidas que ajudam na investigação e acompanhamento do ativo.</p><figure><img alt="Tela de Gestão de Inventário" src="imagens/Gestao de inventario.png"/><figcaption>Gestão de Inventário — edição de setor, unidade e classificação do nó</figcaption></figure><table><thead><tr><th>Opção</th><th>Finalidade</th><th>Quando usar</th></tr></thead><tbody><tr><td>Alterar setor</td><td>Associar o ativo ao setor responsável ou afetado.</td><td>Quando o equipamento muda de área, equipe ou responsabilidade.</td></tr><tr><td>Alterar unidade</td><td>Vincular o nó a uma unidade, site ou localidade.</td><td>Para organizar relatórios, topologia, suporte local e filtros por local.</td></tr><tr><td>Classificar o nó</td><td>Definir a função ou categoria operacional do ativo.</td><td>Para diferenciar switch, roteador, servidor, firewall, endpoint ou outro tipo.</td></tr></tbody></table><p>Os ícones de operações táticas permitem agir rapidamente sobre o nó selecionado. Eles reduzem o caminho entre inventário, monitoramento, relatório e investigação de logs.</p><figure><img alt="Ícones de operações táticas" src="imagens/optaticas.png"/><figcaption>Operações táticas — monitoramento gráfico, relatório e acesso ao Syslog</figcaption></figure><table><thead><tr><th>Operação tática</th><th>Resultado esperado</th><th>Observação</th></tr></thead><tbody><tr><td>Habilitar monitoramento gráfico</td><td>Enviar o ativo para acompanhamento nos Gráficos Nativos.</td><td>Configure as interfaces/portas que devem ser monitoradas.</td></tr><tr><td>Gerar relatório</td><td>Criar saída operacional ou documental sobre o ativo.</td><td>Use para auditoria, evidência de chamado ou prestação de contas.</td></tr><tr><td>Acessar Syslog</td><td>Abrir investigação de logs do dispositivo.</td><td>Útil para correlacionar eventos com alertas, portas e métricas.</td></tr></tbody></table><div class="note"><strong>Uso recomendado:</strong> mantenha setor, unidade e classificação sempre atualizados. Esses campos ajudam filtros, relatórios, alertas, topologia e priorização de suporte.</div><table><thead><tr><th>Campo/área</th><th>Finalidade</th><th>Cuidados</th></tr></thead><tbody>
+<tr><td>Identificação</td><td>Nome, hostname ou etiqueta do ativo.</td><td>Evitar duplicidade e nomes genéricos.</td></tr>
+<tr><td>IP</td><td>Endereço atual do ativo.</td><td>Conferir com IPAM e evitar conflito.</td></tr>
+<tr><td>Protocolo</td><td>SNMP, agente ou outro método de coleta.</td><td>Validar credenciais/comunidade.</td></tr>
+<tr><td>Criticidade</td><td>Prioridade operacional do ativo.</td><td>Usar para priorizar alertas e chamados.</td></tr>
+<tr><td>Localização/unidade</td><td>Onde o ativo está instalado.</td><td>Manter atualizado para suporte local.</td></tr>
+<tr><td>Fornecedor/garantia/valor</td><td>Informações patrimoniais e contratuais.</td><td>Úteis em auditoria e manutenção.</td></tr>
+<tr><td>Custo patrimonial e manutenção</td><td>Valor do ativo, periféricos associados e custos lançados em chamados ou manutenções.</td><td>Ajuda a visualizar, na Gestão de Inventário, quanto o patrimônio custa ao longo do tempo.</td></tr>
+</tbody></table>
+<h2 id="mapas-ipam">9. Mapas e IPAM</h2><p>A área de Mapas separa a visualização de topologia, as opções alternativas de mapa, os mapas customizados e a leitura básica do IPAM. Ela ajuda a entender como os ativos estão distribuídos, conectados e organizados visualmente no ambiente.</p><h3 id="mapa-topologia">9.1 Mapa de topologia</h3><p>O Mapa de Topologia é definido a partir de Ferramentas &gt; Configuração &gt; Visibilidade_mapa. Nessa configuração, o usuário escolhe quais tipos de ativos devem aparecer no mapa. Por padrão, para evitar que o gráfico fique muito longo ou poluído, podem ser exibidos itens como gateway, firewall, switches, servidores e access points, mas a escolha final fica a critério do usuário.</p><figure><img alt="Mapa de topologia" src="imagens/mapa topologia.png"/><figcaption>Mapa de topologia — definição de visibilidade e organização dos nós</figcaption></figure><div class="warning"><strong>Classificação obrigatória:</strong> para um ativo aparecer como switch, firewall, servidor, gateway ou access point, ele precisa estar caracterizado corretamente no Inventário. Se o dispositivo deve ser exibido como switch, por exemplo, altere o tipo do ativo para switch no Inventário. O mesmo vale para os demais tipos de dispositivo.</div><p>A organização e a disposição dos nós na tela são livres e podem ser ajustadas com o mouse. O usuário pode posicionar os ativos conforme a lógica real da rede, a organização física do ambiente ou a forma mais clara para a operação.</p><h3 id="mapa-opcoes-visualizacao">9.2 Opções de visualização e conexões</h3><p>No mapa existem opções de visualização para ajustar zoom, sair da visualização atual, alterar tipos de linha e controlar como as conexões aparecem. Em dispositivos como switches, ao clicar no nó é possível definir a velocidade de conexão, identificada por cor, variando de 100 Mb até 40 Gb conforme a configuração disponível.</p><figure><img alt="Opções de visualização do mapa" src="imagens/opcoes v.png"/><figcaption>Opções de visualização — zoom, saída e tipos de linha</figcaption></figure><figure><img alt="Configuração de vínculo do nó" src="imagens/vicular o no.png"/><figcaption>Vínculo do nó — configuração de conexão e velocidade</figcaption></figure><table><thead><tr><th>Recurso</th><th>Uso</th><th>Observação</th></tr></thead><tbody><tr><td>Zoom</td><td>Aproximar ou afastar a topologia.</td><td>Útil em mapas grandes ou com muitos nós.</td></tr><tr><td>Tipos de linha</td><td>Alterar a representação visual das conexões.</td><td>Ajuda a diferenciar links ou melhorar a leitura.</td></tr><tr><td>Velocidade por cor</td><td>Identificar visualmente conexões de 100 Mb, 1 Gb, 10 Gb, 40 Gb ou valores configurados.</td><td>Depende da configuração do vínculo/conexão do nó.</td></tr><tr><td>Movimentação livre</td><td>Reposicionar ativos com o mouse.</td><td>Use para organizar core, distribuição, acesso e servidores.</td></tr></tbody></table><h3 id="mapa-retraido-expandido">9.3 Visualização retraída e expandida</h3><p>A visualização pode ser reduzida por conexão para simplificar ambientes grandes. Por exemplo, se um backbone está ligado a 15 switches, o operador pode retrair a visualização para enxergar apenas o core ou expandir para visualizar os 15 switches. O mesmo vale para switches de acesso: se cada um possui outros dispositivos configurados para aparecer no mapa, é possível expandir para ver switches secundários e demais ativos, ou retrair para manter uma visão mais limpa.</p><figure><img alt="Mapa de topologia retraído" src="imagens/retraido.png"/><figcaption>Mapa retraído — visualização reduzida por conexão</figcaption></figure><div class="note"><strong>Uso tático:</strong> use a visualização retraída para reuniões, NOC e leitura executiva; use a visualização expandida para investigação técnica, rastreamento de impacto e validação de conexão.</div><h3 id="mapas-customizados">9.4 Mapas customizados</h3><p>Nos Mapas Customizados, o usuário tem liberdade total para configurar a visualização da maneira que achar melhor. Esse recurso é útil para representar salas, racks, unidades, setores, clientes, backbone, links críticos ou qualquer visão que faça sentido para a operação.</p><figure><img alt="Mapa customizado expandido" src="imagens/expandido.png"/><figcaption>Mapa customizado/expandido — organização livre conforme necessidade operacional</figcaption></figure><h3 id="ipam-scan-basico">9.5 IPAM e escaneamento básico de rede</h3><p>No IPAM, o scan é voltado para leitura básica da rede e apoio ao gerenciamento de endereços IP. Ele usa várias regras para tentar localizar máquinas, inclusive em cenários onde endpoints podem estar com firewall bloqueando respostas comuns. Esse scan é mais simples que o Discovery disponível em Ferramentas, que é mais robusto, possui busca rápida e profunda, e também pode utilizar SNMP.</p><table><thead><tr><th>Recurso</th><th>IPAM / scan básico</th><th>Discovery em Ferramentas</th></tr></thead><tbody><tr><td>Objetivo</td><td>Mapear ocupação de rede e identificar hosts por portas comuns.</td><td>Descobrir ativos de forma mais robusta e preparar cadastro/monitoramento.</td></tr><tr><td>Profundidade</td><td>Mais básico e voltado ao IPAM.</td><td>Possui busca rápida e profunda.</td></tr><tr><td>Métodos</td><td>Pode usar Nmap, portas básicas do Windows, 21, 22, 80, portas de compartilhamento e outras portas comuns.</td><td>Pode usar SNMP e estratégias mais completas de descoberta.</td></tr><tr><td>Quando usar</td><td>Conferência de rede, ocupação, endereços livres e hosts prováveis.</td><td>Descoberta operacional de dispositivos e preparação para inventário/monitoramento.</td></tr></tbody></table><div class="warning"><strong>Cuidados com scan:</strong> execute varreduras somente em redes autorizadas. Mesmo scans básicos podem gerar tráfego e devem respeitar janela operacional, política de segurança e limites do ambiente.</div><h2 id="chamados">10. Central de Tickets</h2><h3 id="chamados-operacao">10.1 Chamados</h3>
+<p>Chamados funcionam como uma central de tickets para registrar incidentes, solicitações, responsáveis, prioridade, evidências, histórico e comunicação. O fluxo se conecta ao SLA definido pelo usuário, à Base de Conhecimento e às Manutenções Programadas, formando o processo principal de atendimento técnico.</p>
+<figure><img alt="Central de Tickets" src="imagens/central-de-tickets-8dfb0d8963.png"/><figcaption>Central de Tickets</figcaption></figure>
+<h3 id="central-tickets-fluxo">10.1.1 Abertura de chamados e triagem inteligente</h3><p>Usuários cadastrados com nível de usuário podem abrir chamados nessa aba para encaminhar solicitações aos operadores técnicos responsáveis pelo atendimento. Antes da abertura, o sistema pode sugerir artigos relacionados da Base de Conhecimento quando identifica que o problema já possui solução documentada.</p><div class="note"><strong>Sugestão de conhecimento:</strong> quando existir um artigo relacionado ao problema, o texto é sugerido para leitura antes da abertura do chamado. Isso ajuda o usuário a resolver casos simples sozinho, mas não impede a abertura do chamado se ele ainda precisar de atendimento.</div><table><thead><tr><th>Recurso</th><th>Função na central de tickets</th><th>Benefício operacional</th></tr></thead><tbody><tr><td>SLA</td><td>Define prazos e regras de atendimento conforme prioridade, unidade ou política do usuário.</td><td>Ajuda a controlar vencimentos, violações e escalonamento.</td></tr><tr><td>Base de Conhecimento</td><td>Armazena artigos, soluções e procedimentos cadastrados.</td><td>Reduz chamados repetidos e orienta usuários antes da abertura.</td></tr><tr><td>Operadores técnicos</td><td>Recebem, analisam, atualizam e resolvem chamados.</td><td>Centraliza responsabilidade e histórico do atendimento.</td></tr><tr><td>Manutenção Programada</td><td>Registra janelas planejadas, ativos afetados e responsáveis.</td><td>Evita confundir intervenção planejada com incidente inesperado.</td></tr></tbody></table><ol><li>O usuário acessa a Central de Tickets e descreve o problema ou solicitação.</li><li>O sistema verifica se há artigo relacionado na Base de Conhecimento e sugere leitura quando aplicável.</li><li>Se a solução sugerida resolver, o chamado pode ser evitado.</li><li>Se ainda houver necessidade de atendimento, o usuário continua e abre o chamado normalmente.</li><li>O chamado segue para os operadores técnicos, respeitando prioridade, SLA e histórico registrado.</li><li>Quando o caso envolver janela planejada, registre ou associe a Manutenção Programada correspondente.</li></ol><div class="flow">ABERTO → ATRIBUÍDO → EM ANÁLISE → AGUARDANDO → RESOLVIDO → FECHADO</div>
+<table><thead><tr><th>Status</th><th>Quando usar</th></tr></thead><tbody>
+<tr><td>Aberto</td><td>Solicitação ou incidente registrado e ainda sem triagem completa.</td></tr>
+<tr><td>Atribuído</td><td>Responsável definido.</td></tr>
+<tr><td>Em análise</td><td>Investigação em andamento.</td></tr>
+<tr><td>Aguardando</td><td>Dependência externa, usuário, fornecedor ou janela.</td></tr>
+<tr><td>Resolvido</td><td>Correção aplicada e aguardando confirmação.</td></tr>
+<tr><td>Fechado</td><td>Validação concluída e registro encerrado.</td></tr>
+</tbody></table>
+<ul><li>Use título objetivo.</li><li>Inclua ativo afetado, impacto, horário, evidências e prioridade.</li><li>Atualize o histórico a cada ação relevante.</li><li>Escalone quando prazo, criticidade ou complexidade exigirem.</li><li>Ao encerrar, registre causa raiz e prevenção.</li></ul>
+<h3 id="sla">10.2 SLA</h3>
+<p>O SLA Dashboard acompanha prazos de atendimento definidos pelo usuário, latência do atendimento, violações e desempenho por prioridade, unidade ou período. Ele complementa a Central de Tickets e ajuda a identificar chamados próximos do vencimento ou já violados.</p>
+<figure><img alt="SLA Dashboard" src="imagens/sla-dashboard-3e68f11c43.png"/><figcaption>SLA Dashboard</figcaption></figure>
+<table><thead><tr><th>Situação</th><th>Interpretação</th><th>Ação</th></tr></thead><tbody>
+<tr><td>Dentro do prazo</td><td>Atendimento evoluindo conforme combinado.</td><td>Manter acompanhamento.</td></tr>
+<tr><td>Próximo do vencimento</td><td>Risco de violação.</td><td>Priorizar ou escalar.</td></tr>
+<tr><td>Violado</td><td>Prazo descumprido.</td><td>Registrar motivo, corrigir fluxo e comunicar responsáveis.</td></tr>
+<tr><td>Recorrência por unidade</td><td>Problema concentrado em local ou equipe.</td><td>Analisar causa estrutural.</td></tr>
+</tbody></table>
+<h3 id="kb">10.3 Base de Conhecimento</h3>
+<p>A Base de Conhecimento transforma soluções recorrentes em procedimentos reutilizáveis. Além de apoiar operadores técnicos, ela também pode sugerir artigos ao usuário antes da abertura de um chamado, reduzindo solicitações repetidas sem bloquear o pedido de atendimento.</p>
+<figure><img alt="Base de Conhecimento" src="imagens/base-de-conhecimento-5bee2c186e.png"/><figcaption>Base de Conhecimento</figcaption></figure>
+<table><thead><tr><th>Seção do artigo</th><th>Conteúdo recomendado</th></tr></thead><tbody>
+<tr><td>Título</td><td>Problema ou procedimento descrito de forma pesquisável.</td></tr>
+<tr><td>Pré-requisitos</td><td>Acesso, permissões, ferramentas e riscos.</td></tr>
+<tr><td>Sintomas</td><td>Como reconhecer o problema.</td></tr>
+<tr><td>Procedimento</td><td>Passo a passo testado.</td></tr>
+<tr><td>Validação</td><td>Como confirmar que resolveu.</td></tr>
+<tr><td>Evidências</td><td>Prints, logs e comandos úteis.</td></tr>
+<tr><td>Revisão</td><td>Data e responsável pela última atualização.</td></tr>
+</tbody></table>
+<h3 id="manutencoes">10.4 Manutenções Programadas</h3>
+<p>Manutenções Programadas controlam janelas preventivas, ativos afetados, responsáveis, custos, início, término e histórico. Elas são úteis para agendamentos e para diferenciar uma intervenção planejada de uma falha inesperada registrada em chamados.</p><div class="note"><strong>Custos de manutenção e patrimônio:</strong> quando uma manutenção ou chamado envolver troca de periféricos, compra de equipamento, serviço externo ou custo operacional, registre o valor no atendimento. Ao selecionar o ativo no inventário, a Gestão de Inventário pode apresentar o custo do patrimônio e o histórico/log de custos de manutenção, ajudando a entender quanto aquele dispositivo está consumindo ao longo do tempo.</div>
+<figure><img alt="Manutenções programadas" src="imagens/manutencoes-programadas-bb0ffb0ef0.png"/><figcaption>Manutenções programadas</figcaption></figure>
+<div class="flow">Planejamento → Comunicação → Execução → Monitoramento → Validação → Encerramento → Registro</div>
+<ul><li>Defina janela e impacto esperado.</li><li>Comunique usuários e equipes envolvidas.</li><li>Registre ativos afetados e responsáveis.</li><li>Monitore alertas durante a intervenção.</li><li>Valide retorno dos serviços.</li><li>Atualize histórico e chamados relacionados.</li></ul>
+<h2 id="relatorios">11. Relatórios</h2>
+<figure><img alt="Painéis de BI" src="imagens/paineis-de-bi-33b732c1bf.png"/><figcaption>Painéis de BI</figcaption></figure>
+<figure><img alt="Relatório de Inventário" src="imagens/relatorio-de-inventario-96a2a8b9ec.png"/><figcaption>Relatório de Inventário</figcaption></figure>
+<figure><img alt="Relatórios PDF" src="imagens/relatorios-pdf-1ca974fcbf.png"/><figcaption>Relatórios PDF</figcaption></figure>
+<table><thead><tr><th>Tipo</th><th>Quando usar</th><th>Conteúdo esperado</th></tr></thead><tbody>
+<tr><td>Inventário</td><td>Auditoria, patrimônio e revisão de ativos.</td><td>Ativos, filtros, status, localização e classificação.</td></tr>
+<tr><td>PDF operacional</td><td>Plantão, fechamento de incidente e análise rápida.</td><td>Disponibilidade, latência, uptime e métricas.</td></tr>
+<tr><td>BI</td><td>Reuniões gerenciais e tendências.</td><td>Indicadores consolidados, riscos e evolução.</td></tr>
+<tr><td>Executivo</td><td>Prestação de contas.</td><td>Resumo, impacto, ações e recomendações.</td></tr>
+</tbody></table>
+<h2 id="ferramentas">12. Ferramentas avançadas</h2>
+<figure><img alt="Discovery" src="imagens/discovery-087bd74257.png"/><figcaption>Discovery</figcaption></figure>
+<figure><img alt="Configuração" src="imagens/configuracao-19c0279dc3.png"/><figcaption>Configuração</figcaption></figure>
+<figure><img alt="Manutenção do Sistema" src="imagens/manutencao-do-sistema-aed214faff.png"/><figcaption>Manutenção do Sistema</figcaption></figure>
+<figure><img alt="Gerenciador Cron" src="imagens/gerenciador-cron-92d3eea843.png"/><figcaption>Gerenciador Cron</figcaption></figure>
+<figure><img alt="Gestão de Agentes" src="imagens/gestao-de-agentes-47993e5546.png"/><figcaption>Gestão de Agentes</figcaption></figure>
+<figure><img alt="Seletor de Temas" src="imagens/seletor-de-temas-30a939d29c.png"/><figcaption>Seletor de Temas</figcaption></figure>
+<h3 id="ferramentas-discovery-configuracao">12.1 Discovery e diferença para IPAM</h3><p>O Discovery em Ferramentas é mais completo que o scan básico do IPAM. Enquanto o IPAM ajuda a mapear ocupação de rede e hosts prováveis, o Discovery é voltado para descoberta operacional de dispositivos, com busca rápida e profunda, uso de SNMP quando configurado e preparação dos ativos para inventário e monitoramento.</p><div class="warning"><strong>Uso autorizado:</strong> execute Discovery apenas em faixas conhecidas e autorizadas. Buscas profundas podem gerar mais tráfego e devem respeitar janela operacional.</div><h3 id="ferramentas-configuracao-estrutura">12.2 Configuração: estrutura, redes e visibilidade</h3><p>A área de Configuração concentra cadastros administrativos usados por dispositivos, mapas, alertas, SNMP e organização do ambiente. Essas opções devem ser mantidas por usuários com perfil administrativo.</p><figure><img alt="Estrutura de sites, unidades e departamentos" src="imagens/estrutura.png"/><figcaption>Configuração — cadastro de unidades, departamentos e localizações</figcaption></figure><figure><img alt="Cadastro de ranges de rede" src="imagens/range.png"/><figcaption>Configuração — cadastro de ranges/redes usados pelo ambiente</figcaption></figure><figure><img alt="Configuração de visibilidade do mapa" src="imagens/mapa topologia.png"/><figcaption>Configuração — Visibilidade_mapa define quais tipos de dispositivos aparecem no mapa</figcaption></figure><table><thead><tr><th>Configuração</th><th>Finalidade</th><th>Impacto</th></tr></thead><tbody><tr><td>Estrutura_sites</td><td>Cadastrar unidades, departamentos e localizações usadas pelos dispositivos.</td><td>Organiza inventário, relatórios, filtros, suporte e visão por unidade.</td></tr><tr><td>Ranges</td><td>Cadastrar redes e faixas utilizadas pelo ambiente.</td><td>Apoia Discovery, IPAM, topologia e organização operacional.</td></tr><tr><td>Visibilidade_mapa</td><td>Definir quais tipos de dispositivos aparecem no Mapa de Topologia.</td><td>Evita mapa poluído e permite foco em gateway, firewall, switches, servidores, access points ou outros tipos escolhidos.</td></tr></tbody></table><h3 id="ferramentas-inventario-snmp">12.3 Inventário ativo e políticas SNMP</h3><p>Em Inventário ativo, o administrador pode cadastrar novos ativos ou revisar entradas que serão usadas pela operação. Em Políticas SNMP, é possível cadastrar comunidades, versões e parâmetros usados para consulta de equipamentos compatíveis.</p><figure><img alt="Inventário ativo" src="imagens/inventario ativos.png"/><figcaption>Configuração — Inventário ativo para cadastro e revisão de ativos</figcaption></figure><figure><img alt="Cadastro de política SNMP" src="imagens/cadastrosnmp.png"/><figcaption>Configuração — cadastro de políticas SNMP</figcaption></figure><div class="note"><strong>Boa prática SNMP:</strong> use comunidades seguras, documente quais equipamentos usam cada política e evite credenciais genéricas em ambientes produtivos.</div><h3 id="ferramentas-alertas-canais">12.4 Alertas, canais e coletor de e-mail</h3><p>A configuração de Alertas permite definir a qual grupo o dispositivo pertence e ajustar tempo de alerta, latência, e-mails e regras individualizadas por nível. Canais de notificação e coletor de e-mail ainda podem estar em desenvolvimento, mas já representam pontos de expansão para integrações como e-mail, Telegram e outros canais futuros.</p><figure><img alt="Configuração de alertas" src="imagens/alertas.png"/><figcaption>Configuração — alertas por grupo, nível, tempo, latência e e-mails</figcaption></figure><figure><img alt="Canais de notificação" src="imagens/canais.png"/><figcaption>Configuração — canais de notificação como e-mail, Telegram e integrações futuras</figcaption></figure><figure><img alt="Coletor de e-mail" src="imagens/coletor.png"/><figcaption>Configuração — coletor de e-mail em desenvolvimento</figcaption></figure><div class="warning"><strong>Recursos em evolução:</strong> canais de notificação e coletor de e-mail podem receber melhorias futuras. Valide cada canal em ambiente controlado antes de depender dele em operação crítica.</div><h3 id="ferramentas-manutencao-sistema">12.5 Manutenção do Sistema</h3><p>A Manutenção do Sistema reúne ações administrativas para preservar dados, controlar crescimento do banco e facilitar recuperação ou limpeza quando necessário. Ela pode envolver backups, bancos, dispositivos cadastrados, mapas, gráficos e outras configurações estabelecidas pelo usuário.</p><figure><img alt="Tela de manutenção do sistema" src="imagens/manutençao sistema.png"/><figcaption>Manutenção do Sistema — backup, retenção, limpeza e reset</figcaption></figure><table><thead><tr><th>Recurso</th><th>Finalidade</th><th>Cuidado operacional</th></tr></thead><tbody><tr><td>Backup</td><td>Preservar bancos, dispositivos cadastrados, mapas, gráficos e configurações do usuário.</td><td>Execute antes de mudanças importantes, limpezas amplas ou atualizações.</td></tr><tr><td>Política de retenção</td><td>Definir por quanto tempo logs, métricas e informações históricas devem permanecer armazenadas.</td><td>Uma retenção adequada evita crescimento excessivo do banco.</td></tr><tr><td>Limpeza automática</td><td>Remover dados antigos conforme política configurada.</td><td>Valide a regra para não apagar histórico ainda necessário.</td></tr><tr><td>Limpeza manual</td><td>Executar limpeza pontual de dados, cache, logs ou métricas quando necessário.</td><td>Faça em janela controlada e acompanhe logs após a ação.</td></tr><tr><td>Reset</td><td>Facilitar reinicialização de dados ou estados específicos quando a operação exigir.</td><td>Use somente com autorização, entendimento do impacto e backup recente.</td></tr></tbody></table><div class="warning"><strong>Importante:</strong> retenção, limpeza e reset ajudam a evitar que o banco cresça demais e cause problemas ao sistema, mas devem ser planejados. Em ambientes produtivos, mantenha política de backup e retenção compatível com auditoria e operação.</div><h3 id="ferramentas-gerenciador-cron">12.6 Gerenciador Cron</h3><p>O Gerenciador Cron permite agendar tarefas para execução automática em intervalos definidos. É útil para rotinas administrativas e para ativos de rede que, por limitação ou comportamento conhecido, precisam de ações periódicas, como reset controlado de equipamentos VoIP genéricos ou outros dispositivos que costumam exigir intervenção depois de algum tempo de operação.</p><figure><img alt="Gerenciador Cron" src="imagens/cron01.png"/><figcaption>Gerenciador Cron — agendamento de tarefas recorrentes</figcaption></figure><ol><li>Identifique a rotina que precisa ser executada periodicamente.</li><li>Crie o script ou comando em Bash fora do IronGrid.</li><li>Teste o script manualmente no terminal e confirme que funciona sem interação do usuário.</li><li>Valide permissões, caminhos, variáveis e impacto do comando.</li><li>Somente depois de testado, cadastre o script como tarefa no Gerenciador Cron.</li><li>Defina a frequência de execução e acompanhe os primeiros ciclos pelos logs.</li></ol><div class="warning"><strong>Teste antes de agendar:</strong> todo script deve ser validado primeiro em Bash. Depois que estiver funcionando corretamente, ele pode ser colocado como tarefa agendada. Isso evita automações quebradas, loops, comandos sem permissão ou ações inesperadas em produção.</div><div class="note"><strong>Exemplo comum:</strong> agendar uma rotina de reset controlado para um ativo de rede específico, como um equipamento VoIP genérico que perde estabilidade após longo período ligado. Use sempre janela, frequência e comando compatíveis com a política do ambiente.</div><table><thead><tr><th>Ferramenta</th><th>Pré-requisitos</th><th>Riscos/validação</th></tr></thead><tbody>
+<tr><td>Discovery</td><td>CIDR autorizado, comunidade SNMP e firewall liberado.</td><td>Pode gerar carga; validar novos ativos antes de produção.</td></tr>
+<tr><td>Configuração</td><td>Perfil administrativo.</td><td>Mudanças impactam alertas, usuários e políticas.</td></tr>
+<tr><td>Manutenção</td><td>Janela controlada.</td><td>Limpeza/reindexação deve ser validada após execução.</td></tr>
+<tr><td>Cron</td><td>Definição clara de agenda e ação.</td><td>Evitar jobs pesados em horário crítico.</td></tr>
+<tr><td>Agentes</td><td>IP/porta do servidor, token e conectividade.</td><td>Validar status conectado e métricas recebidas.</td></tr>
+<tr><td>Temas</td><td>Preferência visual do usuário.</td><td>Não altera operação, mas pode afetar legibilidade.</td></tr>
+</tbody></table>
+<h2 id="agentes-rustdesk">13. Gestão de Agentes e RustDesk</h2><p>A Gestão de Agentes é usada para preparar a instalação do coletor local nos ativos Windows e Linux. O operador informa os parâmetros do ambiente, como endereço do servidor IronGrid, porta, token, comunidade SNMP e dados do RustDesk, e o sistema gera o método de instalação mais adequado: Bash para Linux, PowerShell/PS1 para Windows ou instalador gráfico para implantações manuais.</p><figure><img alt="Gestão de Agentes" src="imagens/agentes.png"/><figcaption>Gestão de Agentes — geração de instaladores e comandos</figcaption></figure><h3 id="agentes-metodos-instalacao">13.1 Métodos de instalação do agente</h3><p>Antes de instalar, confirme que o endpoint alcança o servidor IronGrid na porta configurada e que os parâmetros gerados correspondem ao ambiente real. A instalação por script é ideal para automação e escala; a instalação gráfica é mais confortável para atendimento local, laboratório, validação ou implantação pontual.</p><table><thead><tr><th>Método</th><th>Quando usar</th><th>Cuidados</th></tr></thead><tbody><tr><td>Bash / Linux</td><td>Instalação em servidores ou endpoints Linux, especialmente quando há acesso SSH ou rotina automatizada.</td><td>Executar com permissão adequada e validar dependências do sistema.</td></tr><tr><td>PowerShell / PS1 Windows</td><td>Instalação em Windows por comando, GPO, ferramenta de administração remota ou execução assistida.</td><td>Executar como administrador quando necessário e verificar política de execução do PowerShell.</td></tr><tr><td>Instalador gráfico Windows</td><td>Instalação manual com interface, útil para equipes de campo ou ambientes onde o operador prefere confirmar parâmetros visualmente.</td><td>Conferir diretório, IP/nome do servidor, porta, token e chave RustDesk antes de finalizar.</td></tr></tbody></table><div class="appendix"><strong>Campos observados no sistema:</strong> IP do servidor, porta do servidor, comunidade SNMP, servidor RustDesk HBBS, relay RustDesk e chave pública RustDesk.</div><table><thead><tr><th>Campo</th><th>O que preencher</th><th>Observação</th></tr></thead><tbody>
+<tr><td>Servidor IronGrid</td><td>IP ou domínio do servidor</td><td>Deve ser acessível pelo endpoint cliente.</td></tr>
+<tr><td>Porta IronGrid</td><td>Normalmente <code>3001</code></td><td>Usada para baixar instaladores e enviar dados.</td></tr>
+<tr><td>Comunidade SNMP</td><td>Comunidade autorizada</td><td>Use valor seguro e compatível com os ativos.</td></tr>
+<tr><td>Servidor RustDesk HBBS</td><td>IP ou domínio do servidor RustDesk</td><td>Geralmente o mesmo servidor do IronGrid quando o perfil remote/full está ativo.</td></tr>
+<tr><td>Relay RustDesk</td><td><code>IP_OU_DOMINIO:21117</code></td><td>Porta padrão do HBBR.</td></tr>
+<tr><td>Chave pública RustDesk</td><td>Conteúdo de <code>id_ed25519.pub</code></td><td>Obtida no servidor com <code>./manage.sh rustdesk:key</code>.</td></tr>
+</tbody></table><h3 id="agente-windows-grafico">13.2 Instalação gráfica do agente em Windows</h3><p>Em máquinas Windows, o administrador pode baixar o instalador gráfico do agente, escolher o diretório de instalação e ajustar os parâmetros para apontar para o servidor IronGrid correto. Esse caminho é especialmente útil quando a instalação será feita máquina a máquina, quando o técnico precisa conferir dados na tela ou quando ainda está validando o ambiente antes de automatizar em larga escala.</p><div class="note" id="agente-windows-checklist"><strong>Antes de iniciar:</strong> tenha em mãos o IP ou DNS do servidor IronGrid, a porta da aplicação, token/comunidade quando usados, e a chave pública do RustDesk caso o acesso remoto seja habilitado.</div><figure><img alt="Início da instalação — tela inicial após baixar o instalador do agente Windows" src="imagens/inicio instalacao apos baixar.jpeg"/><figcaption>Início da instalação — tela inicial após baixar o instalador do agente Windows</figcaption></figure><figure><img alt="Definição do diretório onde o agente será instalado" src="imagens/definir diretorio.jpeg"/><figcaption>Definição do diretório onde o agente será instalado</figcaption></figure><figure><img alt="Alteração dos parâmetros conforme IP ou nome do servidor IronGrid e dados RustDesk" src="imagens/alterar os ips e chave.jpeg"/><figcaption>Alteração dos parâmetros conforme IP ou nome do servidor IronGrid e dados RustDesk</figcaption></figure><figure><img alt="Exemplo de parâmetros alterados para o ambiente correto" src="imagens/ips alterados exemplo.jpeg"/><figcaption>Exemplo de parâmetros alterados para o ambiente correto</figcaption></figure><figure><img alt="Como obter/gerar a chave pública RustDesk no container do servidor" src="imagens/ruskdesk chave conteinner.png"/><figcaption>Como obter/gerar a chave pública RustDesk no container do servidor</figcaption></figure><figure><img alt="Instalação do RustDesk quando selecionado para permitir acesso remoto via Inventário" src="imagens/ruskdesk se selecionado.jpeg"/><figcaption>Instalação do RustDesk quando selecionado para permitir acesso remoto via Inventário</figcaption></figure><figure><img alt="Finalização da instalação do agente Windows" src="imagens/termino install.jpeg"/><figcaption>Finalização da instalação do agente Windows</figcaption></figure><ol><li>Baixe o instalador gráfico do agente pela Gestão de Agentes.</li><li>Inicie a instalação no Windows com permissão administrativa quando necessário.</li><li>Defina o diretório onde o agente será instalado.</li><li>Altere os IPs, nomes e portas para apontar para o servidor IronGrid correto.</li><li>Configure a chave pública RustDesk quando o acesso remoto for usado.</li><li>Se selecionar RustDesk, confirme que o servidor foi instalado com perfil full ou remote e que a parte servidor do RustDesk está disponível.</li><li>Finalize a instalação e valide no IronGrid se o agente ficou conectado e enviando inventário/métricas.</li></ol><div class="warning"><strong>RustDesk e acesso remoto:</strong> para o administrador acessar a máquina pela aba Inventário, o agente deve estar instalado no endpoint, o RustDesk deve ser instalado quando selecionado, e o servidor IronGrid precisa ter a parte servidor do RustDesk configurada no perfil full ou remote. A chave pública do servidor deve ser informada no agente; a chave privada deve permanecer protegida no servidor.</div><p>Na tabela de dispositivos, quando o dispositivo possui <code>rustdeskId</code>, o sistema pode exibir ação de conexão RustDesk. Essa ação deve ser usada apenas para ativos autorizados.</p><pre>./manage.sh rustdesk:key</pre><p>Portas RustDesk normalmente necessárias entre clientes e servidor:</p><pre>21115/tcp
+21116/tcp
+21116/udp
+21117/tcp
+21118/tcp
+21119/tcp</pre><div class="warning"><strong>Validação:</strong> após instalar o agente, confirme se o endpoint aparece como conectado, se métricas chegam ao IronGrid e se o acesso RustDesk abre para o dispositivo correto.</div><h2 id="escaneamento-operacional">14. Escaneamento e descoberta de dispositivos</h2>
+<p>O escaneamento, também chamado de Discovery, é o processo usado para localizar dispositivos em uma faixa de rede e iniciar a organização desses ativos no IronGrid. Ele deve ser feito com autorização, em faixas conhecidas e com parâmetros corretos de rede e SNMP.</p>
+<figure><img alt="Discovery" src="imagens/discovery-087bd74257.png"/><figcaption>Discovery — criação e acompanhamento de escaneamentos</figcaption></figure>
+<h3>14.1 Antes de criar um escaneamento</h3>
+<table><thead><tr><th>Item</th><th>O que conferir</th><th>Exemplo</th></tr></thead><tbody>
+<tr><td>Faixa ou CIDR</td><td>Qual rede será pesquisada.</td><td><code>192.168.1.0/24</code>, <code>10.10.0.0/24</code></td></tr>
+<tr><td>Permissão operacional</td><td>Se a varredura está autorizada para aquele horário e ambiente.</td><td>Janela de manutenção ou horário de baixo impacto.</td></tr>
+<tr><td>Comunidade SNMP</td><td>Credencial usada para consultar equipamentos compatíveis.</td><td>Comunidade cadastrada ou comunidade customizada autorizada.</td></tr>
+<tr><td>Firewall e rotas</td><td>Se o servidor IronGrid alcança a rede alvo.</td><td>Ping, SNMP e portas liberadas conforme política local.</td></tr>
+<tr><td>Objetivo</td><td>O que se espera encontrar.</td><td>Switches, roteadores, impressoras, servidores ou endpoints.</td></tr>
+</tbody></table>
+<div class="warning"><strong>Cuidados:</strong> evite escanear redes muito amplas sem necessidade. Um discovery mal planejado pode gerar tráfego desnecessário, resultados confusos e esforço extra de classificação.</div>
+<h3>14.2 Como criar o escaneamento</h3>
+<ol><li>Acesse <strong>Ferramentas &gt; Discovery</strong>.</li><li>Escolha uma comunidade SNMP existente ou informe uma comunidade customizada autorizada.</li><li>Informe a faixa, rede ou CIDR que será pesquisado.</li><li>Confirme se o tipo de sincronização é manual, por faixa ou conforme a opção desejada na tela.</li><li>Inicie a sincronização/escaneamento.</li><li>Acompanhe o estado da execução até concluir, falhar ou retornar dispositivos.</li></ol>
+<h3>14.3 Como acompanhar o resultado</h3>
+<table><thead><tr><th>Estado/resultado</th><th>Significado</th><th>Ação</th></tr></thead><tbody>
+<tr><td>Em execução</td><td>O IronGrid ainda está percorrendo a faixa configurada.</td><td>Aguarde e evite iniciar varreduras duplicadas na mesma rede.</td></tr>
+<tr><td>Concluído com dispositivos</td><td>Foram encontrados ativos ou respostas úteis.</td><td>Revise os itens, classifique e envie para inventário/monitoramento quando aplicável.</td></tr>
+<tr><td>Concluído sem resultados</td><td>Nenhum ativo respondeu dentro dos parâmetros.</td><td>Verifique CIDR, rota, firewall, comunidade SNMP e autorização.</td></tr>
+<tr><td>Falha</td><td>O processo encontrou erro técnico ou parâmetro inválido.</td><td>Revise mensagem, parâmetros e logs; tente novamente com uma faixa menor.</td></tr>
+</tbody></table>
+<h3>14.4 O que fazer com dispositivos encontrados</h3>
+<ol><li>Abra a lista de resultados do discovery.</li><li>Confirme IP, nome detectado, tipo provável e protocolo disponível.</li><li>Evite cadastrar duplicado: pesquise o IP ou hostname em <strong>Inventário &gt; Dispositivos</strong>.</li><li>Cadastre ou atualize o ativo com tipo, unidade, setor, criticidade e observações.</li><li>Associe política SNMP, agente ou método de coleta quando aplicável.</li><li>Confirme se o dispositivo aparece em Dispositivos, IPAM, Topologia ou Gráficos Nativos conforme sua função.</li></ol>
+<div class="result"><strong>Resultado esperado:</strong> ao final do discovery, os ativos válidos devem estar revisados, classificados e prontos para monitoramento. Itens desconhecidos devem ficar pendentes de validação, não misturados com ativos produtivos.</div>
+<h2 id="colocar-monitoramento">15. Como colocar dispositivos em monitoramento</h2>
+<p>Colocar um dispositivo em monitoramento significa garantir que ele esteja cadastrado, com IP correto, tipo adequado, criticidade definida e pelo menos um método de coleta funcional, como SNMP ou agente.</p>
+<h3>15.1 Cadastro manual de dispositivo</h3>
+<ol><li>Acesse <strong>Inventário &gt; Dispositivos</strong>.</li><li>Use a ação de novo dispositivo/equipamento quando disponível.</li><li>Preencha nome ou identificação do ativo.</li><li>Informe o IP de gestão.</li><li>Selecione tipo: servidor, switch, roteador, firewall, impressora, workstation, câmera, access point, NAS ou outro tipo compatível.</li><li>Defina status inicial, unidade, setor, criticidade e observações.</li><li>Informe protocolo ou dados de coleta quando a tela solicitar.</li><li>Salve e pesquise o dispositivo na lista para confirmar o cadastro.</li></ol>
+<figure><img alt="Dispositivos" src="imagens/dispositivos-b4acb18e4a.png"/><figcaption>Inventário &gt; Dispositivos — listagem e ações do ativo</figcaption></figure>
+<h3>15.2 Ativar coleta SNMP</h3>
+<table><thead><tr><th>Campo</th><th>Finalidade</th><th>Como validar</th></tr></thead><tbody>
+<tr><td>IP de gestão</td><td>Endereço usado pelo IronGrid para consultar o ativo.</td><td>O IP deve responder a partir do servidor.</td></tr>
+<tr><td>Comunidade SNMP</td><td>Credencial de consulta SNMP.</td><td>Usar comunidade cadastrada em Configuração/Ferramentas.</td></tr>
+<tr><td>Versão SNMP</td><td>Compatibilidade com o equipamento.</td><td>Confirmar com a configuração do dispositivo.</td></tr>
+<tr><td>Monitorado/ativo</td><td>Indica que o ativo deve entrar na rotina de coleta.</td><td>Dispositivo aparece como SNMP ativo/conectado quando a coleta funciona.</td></tr>
+</tbody></table>
+<h3>15.3 Ativar coleta por agente</h3>
+<ol><li>Acesse <strong>Ferramentas &gt; Agentes</strong>.</li><li>Informe IP/host do servidor IronGrid e porta usada pela interface.</li><li>Informe comunidade SNMP se o script solicitar.</li><li>Preencha dados RustDesk se o endpoint terá acesso remoto integrado.</li><li>Copie o comando Windows ou Linux gerado pela tela.</li><li>Execute no endpoint com permissão administrativa.</li><li>Aguarde o estado conectado e confirme recebimento de métricas.</li></ol>
+<h3>15.4 Quando considerar o monitoramento válido</h3>
+<ul><li>O dispositivo aparece em <strong>Inventário &gt; Dispositivos</strong>.</li><li>IP, nome, tipo, unidade e criticidade estão corretos.</li><li>O status indica ativo/conectado ou a última coleta é recente.</li><li>Gráficos Nativos mostram interfaces ou métricas esperadas quando SNMP está configurado.</li><li>Alertas estão associados quando o ativo é crítico.</li><li>Se houver agente, ele aparece como conectado e enviando dados.</li></ul>
+<h2 id="visualizar-dispositivos">16. Como visualizar e acompanhar dispositivos</h2>
+<p>Depois de cadastrado, um dispositivo pode ser acompanhado por diferentes telas. Cada tela responde a uma pergunta operacional diferente.</p>
+<table><thead><tr><th>Tela</th><th>Quando usar</th><th>O que observar</th></tr></thead><tbody>
+<tr><td>Painel Geral</td><td>Visão rápida da saúde do ambiente.</td><td>Nós ativos, cobertura, alertas, tráfego e CPU.</td></tr>
+<tr><td>Inventário &gt; Dispositivos</td><td>Localizar, editar ou consultar um ativo específico.</td><td>Nome, IP, status, protocolo, criticidade e ações.</td></tr>
+<tr><td>Gráficos Nativos</td><td>Analisar tráfego e métricas SNMP.</td><td>RX/TX, picos, interfaces, histórico e conexão.</td></tr>
+<tr><td>Gestão de Inventário</td><td>Ver dados patrimoniais e administrativos.</td><td>Unidade, setor, fornecedor, garantia, classificação e vínculos.</td></tr>
+<tr><td>Mapa de Topologia</td><td>Entender relação entre ativos.</td><td>Nós, links, estado e impacto visual.</td></tr>
+<tr><td>IPAM &amp; Redes</td><td>Conferir endereçamento e ocupação.</td><td>IP ocupado, reservado, livre, subnet e conflitos.</td></tr>
+<tr><td>Agentes</td><td>Instalar ou validar endpoints com coleta local.</td><td>Comando de instalação, servidor, porta, RustDesk e conexão.</td></tr>
+<tr><td>Audit/Syslog</td><td>Investigar eventos do dispositivo.</td><td>Severidade, origem, horário, mensagem e recorrência.</td></tr>
+</tbody></table>
+<figure><img alt="Gráficos Nativos" src="imagens/graficos-nativos-1b01ba4f65.png"/><figcaption>Gráficos Nativos — análise de tráfego e interfaces</figcaption></figure>
+<h3>16.1 Leitura da tabela de dispositivos</h3>
+<ul><li><strong>Status:</strong> indica se o ativo está online, offline, ativo ou com coleta SNMP ativa/inativa conforme os dados disponíveis.</li><li><strong>Identidade:</strong> nome, hostname ou identificador do equipamento.</li><li><strong>IP:</strong> endereço usado para gestão e monitoramento.</li><li><strong>Protocolo/core:</strong> tipo ou função do equipamento, como servidor, switch, roteador ou impressora.</li><li><strong>Criticidade:</strong> ajuda a priorizar atendimento e alertas.</li><li><strong>Ações:</strong> editar, visualizar métricas, abrir detalhes, conectar por RustDesk quando configurado ou remover quando autorizado.</li></ul>
+<h3>16.2 Fluxo recomendado para acompanhar um dispositivo crítico</h3>
+<div class="flow">Dispositivos → pesquisar ativo → confirmar status/IP → abrir Gráficos Nativos → verificar Audit/Syslog → abrir Topologia/IPAM → atualizar chamado se houver anomalia</div>
+<h3>16.3 Boas práticas para monitoramento</h3>
+<ul><li>Padronize nomes de dispositivos.</li><li>Evite cadastrar o mesmo IP mais de uma vez.</li><li>Defina criticidade realista.</li><li>Use unidade e setor para facilitar relatórios.</li><li>Revise ativos offline recorrentes.</li><li>Documente exceções: equipamento sem SNMP, coleta parcial, link intermitente ou manutenção programada.</li><li>Após discovery, sempre revise antes de considerar o ativo produtivo.</li></ul>
+<h2 id="fluxos">17. Fluxos completos</h2>
+<h3>Equipamento ficou offline</h3>
+<div class="flow">Alerta recebido → Painel Geral → Confirmar ativo → Verificar último contato → Gráficos → Syslog → Conectividade → Chamado → Correção → Validação → Encerramento → Base de Conhecimento</div>
+<h3>Tráfego elevado</h3>
+<div class="flow">Painel Geral → Gráficos Nativos → Identificar interface → Comparar baseline → Correlacionar Syslog → Verificar backup/uso legítimo → Abrir chamado se houver impacto</div>
+<h3>Novo dispositivo na rede</h3>
+<div class="flow">Discovery autorizado → Revisar resultado → Cadastrar/classificar → Definir criticidade → Validar SNMP/agente → Configurar alertas → Atualizar topologia/IPAM</div>
+<h3>Alerta não recebido</h3>
+<div class="flow">Verificar regra → Verificar destinatário → Testar SMTP → Conferir limiar → Gerar evento de teste → Validar entrega → Registrar ajuste</div>
+<h2 id="trouble">18. Troubleshooting</h2>
+<table><thead><tr><th>Problema</th><th>Possíveis causas</th><th>Verificação</th><th>Ação</th></tr></thead><tbody>
+<tr><td>Equipamento offline</td><td>Rede, energia, rota, SNMP ou agente.</td><td>Ping, último contato, Syslog, inventário.</td><td>Corrigir conectividade ou acionar responsável local.</td></tr>
+<tr><td>Gráfico vazio</td><td>Coleta indisponível, SNMP incorreto ou dispositivo desconectado.</td><td>Estado do dispositivo e credenciais.</td><td>Validar comunidade, firewall e coleta.</td></tr>
+<tr><td>Tráfego elevado</td><td>Saturação, backup, atualização ou anomalia.</td><td>RX/TX, horário, Syslog e serviço.</td><td>Investigar origem e priorizar se houver impacto.</td></tr>
+<tr><td>Alerta não recebido</td><td>SMTP, regra, destinatário ou limiar.</td><td>Configuração e teste de envio.</td><td>Corrigir regra ou canal.</td></tr>
+<tr><td>Grafana sem dados</td><td>Token, datasource, streams ou polling.</td><td>Teste conexão e métricas habilitadas.</td><td>Corrigir integração e aguardar coleta.</td></tr>
+<tr><td>Discovery sem resultados</td><td>CIDR, SNMP, firewall ou falta de autorização.</td><td>Parâmetros e conectividade.</td><td>Corrigir configuração e repetir em janela.</td></tr>
+<tr><td>Agente desconectado</td><td>Firewall, serviço parado, token ou IP incorreto.</td><td>Logs, serviço e conectividade.</td><td>Reconfigurar ou reinstalar agente.</td></tr>
+</tbody></table>
+<h2 id="configuracao-avancada">19. Configuração avançada</h2>
+<p>O módulo Configuração concentra ajustes administrativos. No sistema foram identificadas áreas para sites/unidades, ranges/topologia, visibilidade de mapas, ativos, SNMP, limiares de alertas, canais de notificação e e-mail.</p>
+<table><thead><tr><th>Aba/área</th><th>Uso</th><th>Cuidado</th></tr></thead><tbody>
+<tr><td>Sites/unidades</td><td>Organizar estrutura física ou operacional.</td><td>Impacta inventário, relatórios e análise por unidade.</td></tr>
+<tr><td>Ranges/topologia</td><td>Definir redes e faixas usadas em discovery e mapas.</td><td>Evite ranges amplos sem autorização.</td></tr>
+<tr><td>Visibilidade de mapas</td><td>Controlar o que aparece nos mapas/topologias.</td><td>Validar se ativos críticos continuam visíveis.</td></tr>
+<tr><td>Ativos</td><td>Parâmetros de classificação e cadastro.</td><td>Manter padrão de nomenclatura.</td></tr>
+<tr><td>SNMP</td><td>Comunidades, versões e parâmetros de coleta.</td><td>Proteger credenciais e evitar comunidades inseguras.</td></tr>
+<tr><td>Alertas/limiares</td><td>Condições de disparo e criticidade.</td><td>Ajustar com baseline real para evitar ruído.</td></tr>
+<tr><td>Canais</td><td>Destinos de notificação.</td><td>Testar envio após configurar.</td></tr>
+<tr><td>E-mail</td><td>SMTP e remetente.</td><td>Validar autenticação e política antispam.</td></tr>
+</tbody></table>
+<h2 id="relatorios-avancados">20. Relatórios avançados</h2>
+<p>Além dos relatórios PDF e inventário básico, o sistema possui visões mais específicas para análise operacional, patrimonial e de risco.</p>
+<table><thead><tr><th>Visão</th><th>Finalidade</th><th>Quando usar</th></tr></thead><tbody>
+<tr><td>Ativos</td><td>Lista e filtros gerais de dispositivos.</td><td>Inventário mensal e auditoria.</td></tr>
+<tr><td>Explorer</td><td>Busca avançada e exploração dos dados.</td><td>Investigação e conferência detalhada.</td></tr>
+<tr><td>Monitoramento/performance</td><td>Métricas por dispositivo.</td><td>Análise de degradação ou capacidade.</td></tr>
+<tr><td>Software</td><td>Inventário lógico quando coletado por agente.</td><td>Auditoria de licenças e padronização.</td></tr>
+<tr><td>Hardware</td><td>Memória, disco, periféricos e especificações.</td><td>Planejamento de troca ou upgrade.</td></tr>
+<tr><td>Estrutura</td><td>Organização por unidade, departamento ou local.</td><td>Prestação de contas por área.</td></tr>
+<tr><td>Saúde</td><td>Indicadores de integridade.</td><td>Rotina de NOC e acompanhamento gerencial.</td></tr>
+<tr><td>Risco</td><td>Matriz e ativos críticos.</td><td>Priorização de correções.</td></tr>
+<tr><td>Financeiro</td><td>Investimento, valor atual, manutenção e ROI.</td><td>Gestão patrimonial.</td></tr>
+<tr><td>Alertas</td><td>Ocorrências ativas ou recorrentes.</td><td>Reuniões de operação.</td></tr>
+<tr><td>Suporte/helpdesk</td><td>Relação com tickets e manutenções.</td><td>Análise de atendimento.</td></tr>
+</tbody></table>
+<div class="result"><strong>Resultado esperado:</strong> cada relatório deve responder uma pergunta. Antes de exportar, defina público, período, filtros e decisão que o documento deve apoiar.</div>
+<h2 id="manutencao-backup">21. Manutenção, backup e segurança operacional</h2>
+<p>O sistema possui área de manutenção para backups, políticas de retenção, limpeza, reset e ações administrativas. Essas operações protegem dados importantes e evitam crescimento excessivo do banco, mas devem ser planejadas e registradas.</p>
+<table><thead><tr><th>Ação</th><th>Objetivo</th><th>Risco</th><th>Validação</th></tr></thead><tbody>
+<tr><td>Backup</td><td>Preservar dados antes de mudanças.</td><td>Arquivo incompleto se interrompido.</td><td>Conferir geração e tamanho do backup.</td></tr>
+<tr><td>Restauração</td><td>Retornar dados a um ponto anterior.</td><td>Pode sobrescrever dados atuais.</td><td>Executar somente com autorização e janela.</td></tr>
+<tr><td>Retenção</td><td>Controlar tempo de guarda de dados.</td><td>Remoção de histórico necessário.</td><td>Validar política com auditoria/gestão.</td></tr>
+<tr><td>Limpeza</td><td>Remover cache, temporários ou dados obsoletos.</td><td>Impacto temporário em consultas.</td><td>Monitorar logs após execução.</td></tr>
+<tr><td>Reindexação</td><td>Melhorar busca/consistência.</td><td>Carga durante execução.</td><td>Testar pesquisa e navegação.</td></tr>
+</tbody></table>
+<p>Em qualquer ação administrativa, o operador deve registrar data, motivo, responsável, resultado e evidências.</p>
+<h2 id="responsividade">22. Uso em telas diferentes</h2>
+<p>O sistema possui áreas densas, como tabelas de dispositivos, relatórios, IPAM, discovery e gráficos. Em telas menores, a operação deve priorizar filtros e leitura por etapas.</p>
+<table><thead><tr><th>Cenário</th><th>Recomendação</th></tr></thead><tbody>
+<tr><td>Monitor pequeno</td><td>Use zoom do navegador entre 80% e 100%, expanda apenas o grupo necessário e evite muitas colunas simultâneas.</td></tr>
+<tr><td>Tabelas largas</td><td>Use filtros, busca e rolagem horizontal quando disponível.</td></tr>
+<tr><td>Gráficos</td><td>Abra análise detalhada ou tela cheia para investigar tendência.</td></tr>
+<tr><td>Mapas/topologia</td><td>Use zoom e pan; filtre ativos para reduzir poluição visual.</td></tr>
+<tr><td>Celular/tablet</td><td>Use para consulta e acompanhamento; tarefas administrativas complexas são melhores em desktop.</td></tr>
+</tbody></table>
+<h2 id="glossario">23. Glossário</h2>
+<table><thead><tr><th>Termo</th><th>Significado</th></tr></thead><tbody>
+<tr><td>SNMP</td><td>Protocolo usado para coletar informações de equipamentos de rede.</td></tr>
+<tr><td>Syslog</td><td>Padrão para envio centralizado de logs e eventos.</td></tr>
+<tr><td>IPAM</td><td>Gestão de endereços IP e sub-redes.</td></tr>
+<tr><td>SLA</td><td>Acordo de nível de serviço e prazo de atendimento.</td></tr>
+<tr><td>Grafana</td><td>Plataforma de dashboards e visualização de métricas.</td></tr>
+<tr><td>Discovery</td><td>Processo de descoberta de ativos em uma rede.</td></tr>
+<tr><td>Polling</td><td>Ciclo periódico de coleta de dados.</td></tr>
+<tr><td>RX</td><td>Dados recebidos por uma interface.</td></tr>
+<tr><td>TX</td><td>Dados transmitidos por uma interface.</td></tr>
+<tr><td>Baseline</td><td>Comportamento normal esperado para comparação.</td></tr>
+<tr><td>CIDR</td><td>Notação de rede, exemplo 192.168.1.0/24.</td></tr>
+<tr><td>Dashboard</td><td>Painel visual de indicadores.</td></tr>
+<tr><td>Endpoint</td><td>Dispositivo ou serviço monitorado.</td></tr>
+<tr><td>L1/L2/L3</td><td>Níveis de atendimento e escalação.</td></tr>
+</tbody></table>
+<h2 id="apoie-projeto">24. Contribution au Projet</h2>
+<p><strong>IronGrid</strong> est disponible gratuitement pour surveiller jusqu a <strong>600 appareils</strong>.</p>
+<p>Si vous devez surveiller plus de 600 appareils, contactez <strong>German Sachelaride</strong> par e-mail a <a href="mailto:sachelaride@gmail.com">sachelaride@gmail.com</a> pour evaluer le scenario et les possibilites d extension.</p>
+<p>Si vous utilisez IronGrid et trouvez le projet utile, vous pouvez contribuer volontairement a son developpement.</p>
+<p>Vos contributions aident a soutenir:</p>
+<ul><li>le developpement de nouvelles fonctionnalites;</li><li>la maintenance et l evolution du projet;</li><li>la documentation;</li><li>les tests et l evolution de la plateforme;</li><li>la disponibilite du projet pour la communaute.</li></ul>
+<h3>Contribution</h3>
+<p><strong>Votre contribution est totalement volontaire. L utilisation gratuite d IronGrid ne depend pas d une contribution financiere.</strong></p>
+<h4>PIX - Bresil</h4>
+<p><strong>PIX:</strong> <code>558252491-68</code><br/><strong>E-mail:</strong> <a href="mailto:sachelaride@gmail.com">sachelaride@gmail.com</a></p>
+<h4>Canal Bancaire - Dollar Americain (USD)</h4>
+<div class="note"><pre>Banque Intermediaire - Field 56
+JP Morgan Chase N.A.
+SWIFT: CHASUS33
+ABA: 021000021
+Account: 360556937
+
+Banque Beneficiaire - Field 57
+Banco Inter S.A.
+SWIFT: ITEMBRSP
+
+Beneficiaire - Field 59
+Beneficiaire au Bresil: GERMAN DE OLIVEIRA SACHELARIDE
+IBAN: BR2800416968000010011233613C1</pre></div>
+<h3>Contact</h3>
+<p><strong>German Sachelaride</strong><br/>E-mail: <a href="mailto:sachelaride@gmail.com">sachelaride@gmail.com</a></p>
+<p>Merci a tous ceux qui utilisent, testent, partagent et contribuent au projet IronGrid.</p>
+<p><strong>IronGrid - Open Infrastructure Management</strong></p>
+<h2 id="historico">25. Histórico de versões</h2>
+<table><thead><tr><th>Versão</th><th>Data</th><th>Descrição</th></tr></thead><tbody>
+<tr><td>1.0</td><td>14/08/2026</td><td>Manual resumido com telas principais e procedimentos básicos.</td></tr>
+<tr><td>2.0 expandida</td><td>14/08/2026</td><td>Versão operacional ampliada com interpretação, fluxos, troubleshooting e glossário.</td></tr><tr><td>3.0 completa</td><td>14/08/2026</td><td>Inclui agentes, RustDesk, configuração avançada, relatórios avançados, manutenção/backup e recomendações de uso em telas diferentes.</td></tr>
+<tr><td>5.0 funcionalidades operacionais</td><td>17/08/2026</td><td>Inclui passo a passo para criar escaneamentos, revisar resultados, cadastrar dispositivos, colocar ativos em monitoramento e visualizar acompanhamento por tela.</td></tr><tr><td>8.1 funcionalidades operacionais</td><td>19/08/2026</td><td>Atualiza acesso, usuários, temas, idiomas, Gráficos Nativos, Audit/Syslog, Alertas, Grafana, Inventário, Mapas/IPAM, Central de Tickets, Ferramentas e promove Gestão de Agentes para seção própria com instalação gráfica Windows, Bash, PS1 e RustDesk.</td></tr></tbody></table>
+<p class="small">Fin du manuel. Document HTML publié avec des images externes dans le dossier <code>imagens/</code>.</p>
+</main><div id="google_translate_element" style="display:none"></div><script>
+(function(){
+  var target = 'fr';
+  if (target !== 'pt') { document.cookie = 'googtrans=/pt/' + target + ';path=/'; document.cookie = 'googtrans=/pt/' + target + ';domain=' + location.hostname + ';path=/'; } else { document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/'; document.cookie = 'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;domain=' + location.hostname + ';path=/'; }
+  window.googleTranslateElementInit = function() { new google.translate.TranslateElement({pageLanguage:'pt', includedLanguages:'pt,en,es,de,fr', autoDisplay:false}, 'google_translate_element'); };
+})();
+</script><script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></body></html>

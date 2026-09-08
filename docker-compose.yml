@@ -1,0 +1,91 @@
+# Compose principal do IronGrid. Os valores sensiveis devem vir de .env.docker.
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: irongrid-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - irongrid-pg-data:/var/lib/postgresql/data
+
+  influxdb:
+    image: influxdb:2.0
+    container_name: irongrid-influxdb
+    restart: always
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUX_INIT_USERNAME}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUX_INIT_PASSWORD}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUX_ORG}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUX_BUCKET}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUX_TOKEN}
+    volumes:
+      - irongrid-influx-data:/var/lib/influxdb2
+      - irongrid-influx-config:/etc/influxdb2
+
+  rustdesk-hbbs:
+    image: rustdesk/rustdesk-server:latest
+    container_name: irongrid-hbbs
+    restart: always
+    command: hbbs -r rustdesk-hbbr:21117
+    volumes:
+      - irongrid-rustdesk-data:/root
+    ports:
+      - "${RUSTDESK_HBBS_PORT}:21115"
+      - "${RUSTDESK_RENDEZVOUS_TCP_PORT}:21116/tcp"
+      - "${RUSTDESK_RENDEZVOUS_UDP_PORT}:21116/udp"
+      - "${RUSTDESK_WEB_CLIENT_PORT}:21118"
+    depends_on:
+      - rustdesk-hbbr
+
+  rustdesk-hbbr:
+    image: rustdesk/rustdesk-server:latest
+    container_name: irongrid-hbbr
+    restart: always
+    command: hbbr
+    volumes:
+      - irongrid-rustdesk-data:/root
+    ports:
+      - "${RUSTDESK_RELAY_PORT}:21117"
+      - "${RUSTDESK_RELAY_WEB_PORT}:21119"
+
+  irongrid:
+    image: sachelaride/irongrid-limited-369:latest
+    container_name: irongrid-app
+    restart: always
+    env_file:
+      - .env.docker
+    ports:
+      - "${IRONGRID_HTTP_PORT}:3001"
+      - "${IRONGRID_SYSLOG_PORT}:1514/udp"
+    depends_on:
+      - db
+      - influxdb
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: irongrid-grafana
+    restart: always
+    environment:
+      - GF_SECURITY_ALLOW_EMBEDDING=true
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    ports:
+      - "${GRAFANA_PORT}:3000"
+    depends_on:
+      - influxdb
+    volumes:
+      - irongrid-grafana-data:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+
+volumes:
+  irongrid-pg-data:
+  irongrid-influx-data:
+  irongrid-influx-config:
+  irongrid-rustdesk-data:
+  irongrid-grafana-data:

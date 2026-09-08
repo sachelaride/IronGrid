@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+COMPOSE_FILE="${COMPOSE_FILE:-docker-compose.central.yml}"
+COMPOSE=(docker compose -f "$COMPOSE_FILE")
+
+usage() {
+  cat <<'EOF'
+IronGrid - comando central
+
+Uso:
+  ./irongrid up              Sobe app + Postgres + InfluxDB
+  ./irongrid up:grafana      Sobe app + bancos + Grafana
+  ./irongrid up:remote       Sobe app + bancos + RustDesk
+  ./irongrid up:full         Sobe todos os serviços
+  ./irongrid down            Para os serviços sem apagar volumes
+  ./irongrid restart         Reinicia os serviços básicos
+  ./irongrid status          Lista containers
+  ./irongrid logs [servico]  Mostra logs; ex: ./irongrid logs app
+  ./irongrid build           Builda a imagem da aplicação
+  ./irongrid config          Valida/renderiza o compose central
+
+Variáveis úteis em .env.docker:
+  IRONGRID_HTTP_PORT, IRONGRID_SYSLOG_PORT, GRAFANA_PORT,
+  POSTGRES_USER, POSTGRES_PASSWORD, POSTGRES_DB,
+  INFLUX_TOKEN, INFLUX_ORG, INFLUX_BUCKET, JWT_SECRET.
+EOF
+}
+
+case "${1:-help}" in
+  up)
+    "${COMPOSE[@]}" up -d app
+    ;;
+  up:grafana)
+    "${COMPOSE[@]}" --profile grafana up -d app grafana
+    ;;
+  up:remote)
+    "${COMPOSE[@]}" --profile remote up -d app rustdesk-hbbs rustdesk-hbbr
+    ;;
+  up:full)
+    "${COMPOSE[@]}" --profile full up -d
+    ;;
+  down)
+    "${COMPOSE[@]}" --profile full down
+    ;;
+  restart)
+    "${COMPOSE[@]}" restart app db influxdb
+    ;;
+  status|ps)
+    "${COMPOSE[@]}" --profile full ps
+    ;;
+  logs)
+    shift || true
+    "${COMPOSE[@]}" logs -f --tail=200 "$@"
+    ;;
+  build)
+    "${COMPOSE[@]}" build app
+    ;;
+  config)
+    "${COMPOSE[@]}" --profile full config
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    echo "Comando desconhecido: $1" >&2
+    echo >&2
+    usage >&2
+    exit 1
+    ;;
+esac

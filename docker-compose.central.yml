@@ -1,0 +1,141 @@
+name: irongrid
+
+x-restart-policy: &restart_policy
+  restart: unless-stopped
+
+services:
+  app:
+    <<: *restart_policy
+    image: sachelaride/irongrid-limited-369:latest
+    container_name: irongrid-app
+    env_file:
+      - .env.docker
+    ports:
+      - "${IRONGRID_HTTP_PORT:-3001}:3001"
+      - "${IRONGRID_SYSLOG_PORT:-514}:1514/udp"
+    depends_on:
+      db:
+        condition: service_healthy
+      influxdb:
+        condition: service_healthy
+    networks:
+      - irongrid
+
+  db:
+    <<: *restart_policy
+    image: postgres:15-alpine
+    container_name: irongrid-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-irongrid}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Defina POSTGRES_PASSWORD em .env.docker}
+      POSTGRES_DB: ${POSTGRES_DB:-irongrid_db}
+    volumes:
+      - irongrid-pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - irongrid
+
+  influxdb:
+    <<: *restart_policy
+    image: influxdb:2.0
+    container_name: irongrid-influxdb
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: ${INFLUX_INIT_USERNAME:-admin}
+      DOCKER_INFLUXDB_INIT_PASSWORD: ${INFLUX_INIT_PASSWORD:?Defina INFLUX_INIT_PASSWORD em .env.docker}
+      DOCKER_INFLUXDB_INIT_ORG: ${INFLUX_ORG:-irongrid}
+      DOCKER_INFLUXDB_INIT_BUCKET: ${INFLUX_BUCKET:-metrics}
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: ${INFLUX_TOKEN:?Defina INFLUX_TOKEN em .env.docker}
+    volumes:
+      - irongrid-influx-data:/var/lib/influxdb2
+      - irongrid-influx-config:/etc/influxdb2
+    healthcheck:
+      test: ["CMD", "influx", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - irongrid
+
+  grafana:
+    <<: *restart_policy
+    image: grafana/grafana:latest
+    container_name: irongrid-grafana
+    profiles:
+      - grafana
+      - full
+    environment:
+      GF_SECURITY_ALLOW_EMBEDDING: "true"
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    depends_on:
+      influxdb:
+        condition: service_healthy
+    volumes:
+      - irongrid-grafana-data:/var/lib/grafana
+    networks:
+      - irongrid
+
+  rustdesk-hbbs:
+    <<: *restart_policy
+    image: rustdesk/rustdesk-server:latest
+    container_name: irongrid-hbbs
+    profiles:
+      - remote
+      - full
+    command: hbbs -r rustdesk-hbbr:21117
+    volumes:
+      - irongrid-rustdesk-data:/root
+    ports:
+      - "${RUSTDESK_HBBS_PORT:-21115}:21115"
+      - "${RUSTDESK_RENDEZVOUS_TCP_PORT:-21116}:21116/tcp"
+      - "${RUSTDESK_RENDEZVOUS_UDP_PORT:-21116}:21116/udp"
+      - "${RUSTDESK_WEB_CLIENT_PORT:-21118}:21118"
+    depends_on:
+      - rustdesk-hbbr
+    networks:
+      - irongrid
+
+  rustdesk-hbbr:
+    <<: *restart_policy
+    image: rustdesk/rustdesk-server:latest
+    container_name: irongrid-hbbr
+    profiles:
+      - remote
+      - full
+    command: hbbr
+    volumes:
+      - irongrid-rustdesk-data:/root
+    ports:
+      - "${RUSTDESK_RELAY_PORT:-21117}:21117"
+      - "${RUSTDESK_RELAY_WEB_PORT:-21119}:21119"
+    networks:
+      - irongrid
+
+networks:
+  irongrid:
+    name: irongrid-net
+
+volumes:
+  irongrid-pg-data:
+    external: true
+    name: netwall_irongrid-pg-data
+  irongrid-influx-data:
+    external: true
+    name: netwall_irongrid-influx-data
+  irongrid-influx-config:
+    external: true
+    name: netwall_irongrid-influx-config
+  irongrid-rustdesk-data:
+    external: true
+    name: netwall_irongrid-rustdesk-data
+  irongrid-grafana-data:
+    external: true
+    name: netwall_irongrid-grafana-data

@@ -1,0 +1,61 @@
+# Dependencias e caches locais
+node_modules/
+.turbo/
+.npm/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Variaveis de ambiente e credenciais locais
+.env
+.env.*
+!.env.example
+!.env.docker.example
+apps/*/.env
+apps/*/.env.*
+!apps/*/.env.example
+
+# Saidas de compilacao e empacotamento
+dist/
+dist-prod/
+build/
+coverage/
+apps/*/dist/
+apps/*/build/
+apps/*/.vite/
+*.tsbuildinfo
+*.map
+
+# Dados gerados, backups e instaladores locais
+desnecessarios/
+backups/
+apps/server/backups/
+*.sqlite
+*.sqlite3
+*.db
+*.sql
+*.dump
+*.tar
+*.tar.gz
+*.zip
+off-line_install/
+scratch/
+antigos/
+Manual/obsoletos/
+
+# Segredos e chaves privadas
+*.pem
+*.key
+*.p12
+*.pfx
+id_*
+!id_ed25519.pub
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
