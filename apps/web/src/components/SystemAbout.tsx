@@ -3,7 +3,6 @@ import { AlertTriangle, Box, CheckCircle2, HeartHandshake, Info, Lightbulb, Netw
 export function SystemAbout() {
     const items = [
         { label: 'Monitoramento de rede', value: 'SNMP, ping, agentes Windows/Linux, inventario e graficos operacionais' },
-        { label: 'Capacidade desta edicao', value: 'Ate 600 dispositivos ativos cadastrados' },
         { label: 'Acesso', value: 'Interface web na porta 3001, Grafana auxiliar e coleta via agentes' },
         { label: 'Suporte', value: 'sachelaride@gmail.com / (67) 9.9859-9051' },
     ];

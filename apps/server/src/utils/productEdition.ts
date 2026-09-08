@@ -1,4 +1,3 @@
-import { TRPCError } from '@trpc/server';
 import { prisma } from './prisma';
 
 export const SUPPORT_CONTACT = {
@@ -8,18 +7,13 @@ export const SUPPORT_CONTACT = {
 };
 
 export const DONATION_PIX_KEYS = ['558252491-68', 'sachelaride@gmail.com'];
-const LIMITED_ASSET_LIMIT = 600;
-const FULL_UNLOCK_TOKEN = '13042019';
 
-export type ProductEdition = 'limited' | 'full';
+export type ProductEdition = 'full';
 
-export const productEdition: ProductEdition =
-    process.env.IRONGRID_EDITION === FULL_UNLOCK_TOKEN && process.env.IRONGRID_GRAFANA_CHART_LIMIT === FULL_UNLOCK_TOKEN
-        ? 'full'
-        : 'limited';
+export const productEdition: ProductEdition = 'full';
 
 export const PRODUCT_LIMITS = {
-    assets: productEdition === 'limited' ? LIMITED_ASSET_LIMIT : null,
+    assets: null,
     grafanaCharts: null,
 };
 
@@ -60,16 +54,7 @@ export async function getProductUsage() {
     };
 }
 
-export async function assertCanCreateAsset(quantity = 1) {
-    if (!PRODUCT_LIMITS.assets) return;
-
-    const current = await prisma.device.count();
-    if (current + quantity > PRODUCT_LIMITS.assets) {
-        throw new TRPCError({
-            code: 'FORBIDDEN',
-            message: `Limite da versao fechada atingido: ${PRODUCT_LIMITS.assets} ativos cadastrados. Para ampliar, contate ${SUPPORT_CONTACT.name} em ${SUPPORT_CONTACT.email} ou ${SUPPORT_CONTACT.phone}.`,
-        });
-    }
+export async function assertCanCreateAsset(_quantity = 1) {
 }
 
 export function assertGrafanaChartLimit(chartCount: number) {

@@ -17,22 +17,16 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
     const utils = trpc.useUtils();
     const [saving, setSaving] = useState(false);
     const [limitMessage, setLimitMessage] = useState('');
-    const { data: licenseStatus } = (trpc as any).license.getStatus.useQuery(undefined, {
-        refetchInterval: 5000,
-        refetchOnWindowFocus: true,
-    });
 
     const toggleMutation = (trpc.snmp as any).toggleInterface.useMutation({
         onSuccess: () => {
             utils.snmp.listMonitoredDevices.invalidate();
-            (utils as any).license.getStatus.invalidate();
         },
     });
 
     const bulkToggleMutation = (trpc.snmp as any).bulkToggleInterfaces.useMutation({
         onSuccess: () => {
             utils.snmp.listMonitoredDevices.invalidate();
-            (utils as any).license.getStatus.invalidate();
         },
     });
 
@@ -55,11 +49,6 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
         if (typeof iface.index !== 'number') return;
         const newVal = !enabledMap[iface.index];
 
-        if (newVal && !canEnableMore) {
-            setLimitMessage(`Limite da versao fechada atingido: ${globalGraphCount}/${graphLimit} graficos nativos ativos. Acima desse limite os novos graficos deixam de contabilizar metricas. Desative outro grafico antes de habilitar este.`);
-            return;
-        }
-
         setEnabledMap(prev => ({ ...prev, [iface.index]: newVal }));
 
         try {
@@ -76,11 +65,6 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
     };
 
     const handleBulkAll = async (enabled: boolean) => {
-        if (enabled && graphLimit && globalGraphCount + disabledLocalCount > graphLimit) {
-            setLimitMessage(`Esta acao ativaria ${globalGraphCount + disabledLocalCount}/${graphLimit} graficos nativos. Na versao fechada, selecione ate ${graphLimit}; acima disso os novos graficos deixam de contabilizar metricas.`);
-            return;
-        }
-
         setSaving(true);
         try {
             await bulkToggleMutation.mutateAsync({
@@ -104,11 +88,6 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
     const interfaces = device?.interfaceDetails || [];
     const initialEnabledCount = interfaces.filter((iface: any) => iface.enabled === true || iface.autoEnabled === true).length;
     const enabledCount = Object.values(enabledMap).filter(Boolean).length;
-    const graphLimit = licenseStatus?.limits?.grafanaCharts ?? null;
-    const globalGraphCount = Math.max(0, (licenseStatus?.usage?.grafanaCharts ?? enabledCount) + enabledCount - initialEnabledCount);
-    const limited = licenseStatus?.edition === 'limited';
-    const canEnableMore = !limited || !graphLimit || globalGraphCount < graphLimit;
-    const disabledLocalCount = interfaces.filter((iface: any) => typeof iface.index === 'number' && !(enabledMap[iface.index] ?? false)).length;
 
     return (
         <div
@@ -142,11 +121,6 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
                         <span className="text-[10px] font-black text-accent uppercase tracking-widest bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
                             {enabledCount} / {interfaces.length} Ativas
                         </span>
-                        {limited && graphLimit && (
-                            <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border ${globalGraphCount >= graphLimit ? 'text-amber-300 bg-amber-500/10 border-amber-500/20' : 'text-main/70 bg-card/70 border-border'}`}>
-                                Graficos nativos {globalGraphCount}/{graphLimit}
-                            </span>
-                        )}
                         <button
                             onClick={onClose}
                             className="w-10 h-10 rounded-xl hover:bg-card/80 border border-transparent hover:border-border flex items-center justify-center text-main/50 hover:text-main transition-all group"
@@ -215,9 +189,7 @@ export function InterfaceConfigModal({ device, onClose }: InterfaceConfigModalPr
                                     className={`w-full flex items-center gap-4 p-4 rounded-2xl border transition-all text-left group ${
                                         isEnabled
                                             ? 'bg-accent/5 border-accent/30 hover:bg-accent/10'
-                                            : !canEnableMore
-                                                ? 'bg-card/30 border-border opacity-50 cursor-pointer'
-                                                : 'bg-card/50 border-border hover:border-main/20'
+                                            : 'bg-card/50 border-border hover:border-main/20'
                                     }`}
                                 >
                                     {/* Toggle indicator */}

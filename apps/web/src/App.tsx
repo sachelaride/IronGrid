@@ -7,7 +7,6 @@ import { io } from 'socket.io-client';
 import { Toaster, toast } from 'sonner';
 import { useTheme } from './context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ProductEditionBanner } from './components/ProductEditionBanner';
 
 // Lazy loading heavy components
 const DeviceList = lazy(() => import('./components/DeviceList').then(m => ({ default: m.DeviceList })));
@@ -186,7 +185,6 @@ function App() {
         <>
             <Toaster position="top-right" richColors closeButton theme={theme as any} />
             <Layout currentTab={currentTab} onNavigate={handleNavigate} user={user} onLogout={handleLogout}>
-                <ProductEditionBanner />
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentTab}

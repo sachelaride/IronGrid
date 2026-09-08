@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/sachelaride/IronGrid/actions/workflows/validate.yml"><img src="https://github.com/sachelaride/IronGrid/actions/workflows/validate.yml/badge.svg" alt="Build"></a>
   <a href="https://github.com/sachelaride/IronGrid/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-blue.svg" alt="GPLv3"></a>
-  <a href="https://hub.docker.com/repository/docker/sachelaride/irongrid-limited-369/general"><img src="https://img.shields.io/badge/Docker%20Hub-IronGrid-2496ED?logo=docker&logoColor=white" alt="Docker Hub"></a>
+  <a href="https://hub.docker.com/r/sachelaride/irongrid-limited-369"><img src="https://img.shields.io/badge/Docker%20Hub-IronGrid-2496ED?logo=docker&logoColor=white" alt="Docker Hub"></a>
 </p>
 
 O IronGrid é uma plataforma aberta para **monitoramento de dispositivos de
@@ -39,7 +39,7 @@ tools for switches, routers, servers and other network devices.
 
 - [Manual principal online](https://sachelaride.github.io/IronGrid/index.html)
 - [Manuais em português, inglês, espanhol, francês e alemão](Manual/)
-- [Imagem oficial no Docker Hub](https://hub.docker.com/repository/docker/sachelaride/irongrid-limited-369/general)
+- [Imagem oficial no Docker Hub](https://hub.docker.com/r/sachelaride/irongrid-limited-369)
 - [Releases e histórico de downloads](https://github.com/sachelaride/IronGrid/releases)
 
 ## Arquitetura
@@ -84,7 +84,6 @@ A imagem publicada também pode ser baixada diretamente:
 
 ```bash
 docker pull sachelaride/irongrid-limited-369:latest
-docker pull sachelaride/irongrid-limited-369:full
 ```
 
 ## Instalação direta no Linux

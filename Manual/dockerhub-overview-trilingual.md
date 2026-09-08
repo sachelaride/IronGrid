@@ -1,9 +1,8 @@
-# IronGrid Limited 369
+# IronGrid
 
-Imagem oficial: [Docker Hub - sachelaride/irongrid-limited-369](https://hub.docker.com/repository/docker/sachelaride/irongrid-limited-369/general)
+Imagem oficial: [Docker Hub - sachelaride/irongrid-limited-369](https://hub.docker.com/r/sachelaride/irongrid-limited-369)
 
-A tag `latest` corresponde a versao completa publicada a partir do repositorio.
-A tag `full` identifica explicitamente a mesma imagem.
+A tag `latest` corresponde à imagem completa publicada a partir do repositorio.
 
 **Tutorial / Manual HTML:**
 
@@ -21,18 +20,16 @@ A tag `full` identifica explicitamente a mesma imagem.
 
 ## Portugues
 
-Imagem Docker oficial da edicao limitada do IronGrid.
+Imagem Docker oficial da edicao completa do IronGrid.
 
 - Imagem: `sachelaride/irongrid-limited-369:latest`
-- Limite: 369 ativos cadastrados
-- Limite Grafana: 69 graficos/painéis gerados
 - Inclui frontend, backend, agentes para download e integrações do IronGrid
 
 ## Importante
 
 O Docker Hub hospeda apenas a imagem da aplicacao. Para instalar em um servidor novo, voce precisa criar tambem um `docker-compose.yml` e um arquivo `.env`.
 
-A forma mais facil e usar o pacote auxiliar `irongrid-limited-369-20260814`, que contem:
+A forma mais facil e usar o pacote auxiliar de instalacao, que contem:
 
 ```text
 .env.example
@@ -42,7 +39,7 @@ docker-compose.yml
 manage.sh
 ```
 
-O arquivo `irongrid-limited-369.tar` nao e necessario quando a imagem vem do Docker Hub.
+Um arquivo `.tar` nao e necessario quando a imagem vem do Docker Hub.
 
 ## Instalacao rapida com pacote auxiliar
 
@@ -87,9 +84,7 @@ Crie o arquivo `.env`:
 NODE_ENV=production
 DEV_PORT=3001
 DEBUG=false
-IRONGRID_EDITION=limited
-IRONGRID_ASSET_LIMIT=369
-IRONGRID_GRAFANA_CHART_LIMIT=69
+IRONGRID_EDITION=full
 IRONGRID_HTTP_PORT=3001
 IRONGRID_SYSLOG_PORT=514
 POSTGRES_USER=irongrid
@@ -348,18 +343,16 @@ docker cp irongrid-hbbs:/root/id_ed25519.pub ./id_ed25519.pub && cat ./id_ed2551
 
 ## English
 
-Official Docker image for the limited edition of IronGrid.
+Official Docker image for the complete edition of IronGrid.
 
 - Image: `sachelaride/irongrid-limited-369:latest`
-- Limit: 369 registered assets
-- Grafana limit: 69 generated charts/panels
 - Includes frontend, backend, downloadable agents, and IronGrid integrations
 
 ## Important
 
 Docker Hub hosts only the application image. To install IronGrid on a new server, you also need to create a `docker-compose.yml` file and a `.env` file.
 
-The easiest method is to use the auxiliary package `irongrid-limited-369-20260814`, which contains:
+The easiest method is to use the auxiliary installation package, which contains:
 
 ```text
 .env.example
@@ -369,7 +362,7 @@ docker-compose.yml
 manage.sh
 ```
 
-The file `irongrid-limited-369.tar` is not required when the image is pulled from Docker Hub.
+A `.tar` file is not required when the image is pulled from Docker Hub.
 
 ## Quick installation with auxiliary package
 
@@ -414,9 +407,7 @@ Create the `.env` file:
 NODE_ENV=production
 DEV_PORT=3001
 DEBUG=false
-IRONGRID_EDITION=limited
-IRONGRID_ASSET_LIMIT=369
-IRONGRID_GRAFANA_CHART_LIMIT=69
+IRONGRID_EDITION=full
 IRONGRID_HTTP_PORT=3001
 IRONGRID_SYSLOG_PORT=514
 POSTGRES_USER=irongrid

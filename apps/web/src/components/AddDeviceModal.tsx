@@ -37,12 +37,6 @@ export function AddDeviceModal({ onClose }: AddDeviceModalProps) {
     // Fetch organizational data for selection
     const { data: departments = [] } = (trpc as any).organization.listDepartments.useQuery();
     const { data: locations = [] } = (trpc as any).organization.listLocations.useQuery();
-    const { data: licenseStatus } = (trpc as any).license.getStatus.useQuery(undefined, { refetchInterval: 30000 });
-
-    const limited = licenseStatus?.edition === 'limited';
-    const assetLimit = licenseStatus?.limits?.assets ?? null;
-    const assetCount = licenseStatus?.usage?.assets ?? 0;
-    const reachedAssetLimit = limited && assetLimit && assetCount >= assetLimit;
 
     const createMutation = (trpc as any).organization.createDevice.useMutation({
         onSuccess: () => {
@@ -57,11 +51,6 @@ export function AddDeviceModal({ onClose }: AddDeviceModalProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!name || !ipAddress) return;
-
-        if (reachedAssetLimit) {
-            setLimitMessage(`Limite da versao fechada atingido: ${assetCount}/${assetLimit} dispositivos ativos. Para ampliar, contate German Sachelaride.`);
-            return;
-        }
 
         createMutation.mutate({
             name,
@@ -88,12 +77,6 @@ export function AddDeviceModal({ onClose }: AddDeviceModalProps) {
                 </div>
 
                 <form onSubmit={handleSubmit} className="p-8 space-y-6 overflow-y-auto max-h-[70vh] custom-scrollbar">
-                    {limited && assetLimit && (
-                        <div className={`rounded-2xl border p-4 text-sm font-bold ${reachedAssetLimit ? 'border-amber-500/30 bg-amber-500/10 text-amber-200' : 'border-accent/20 bg-accent/10 text-main/80'}`}>
-                            Dispositivos ativos: {assetCount}/{assetLimit}
-                        </div>
-                    )}
-
                     {limitMessage && (
                         <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm font-bold text-amber-200">
                             <div className="flex items-start justify-between gap-4">
@@ -206,7 +189,7 @@ export function AddDeviceModal({ onClose }: AddDeviceModalProps) {
                         </button>
                         <button
                             type="submit"
-                            disabled={createMutation.isPending || !name || !ipAddress || !!reachedAssetLimit}
+                            disabled={createMutation.isPending || !name || !ipAddress}
                             className="flex-[2] bg-accent hover:bg-accent disabled:bg-slate-800 text-main px-8 py-5 rounded-2xl font-black italic transition-all flex items-center justify-center gap-2 shadow-xl shadow-accent/20 active:scale-[0.98] uppercase tracking-widest text-xs"
                         >
                             {createMutation.isPending ? 'REGISTRANDO...' : <><Save className="w-4 h-4" /> SALVAR EQUIPAMENTO</>}
