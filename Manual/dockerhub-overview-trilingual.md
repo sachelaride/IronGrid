@@ -2,6 +2,9 @@
 
 Imagem oficial: [Docker Hub - sachelaride/irongrid-limited-369](https://hub.docker.com/repository/docker/sachelaride/irongrid-limited-369/general)
 
+A tag `latest` corresponde a versao completa publicada a partir do repositorio.
+A tag `full` identifica explicitamente a mesma imagem.
+
 **Tutorial / Manual HTML:**
 
 - Portugues: https://sachelaride.github.io/IronGrid-369/index.html

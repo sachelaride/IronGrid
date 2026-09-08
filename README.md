@@ -24,6 +24,13 @@ As imagens publicadas estao disponiveis no
 sachelaride/irongrid-limited-369:latest
 ```
 
+A tag `latest` aponta para a imagem completa publicada a partir deste
+repositorio. A mesma imagem tambem esta disponivel com a tag explicita `full`:
+
+```text
+sachelaride/irongrid-limited-369:full
+```
+
 Para baixar a imagem diretamente:
 
 ```bash
