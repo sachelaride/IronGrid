@@ -45,8 +45,18 @@ Os manuais estao disponiveis na pasta [Manual](Manual/):
 - [Manual em alemão](Manual/index-de.html)
 - [Instalação offline](MANUAL_INSTALACAO_OFFLINE.md)
 
-Quando o repositorio estiver publicado no GitHub Pages, as paginas HTML tambem
-podem ser acessadas diretamente em `https://USUARIO.github.io/REPOSITORIO/Manual/`.
+As paginas publicadas podem ser acessadas pelo GitHub Pages:
+
+- [Manual principal](https://sachelaride.github.io/IronGrid/index.html)
+- [Manual em português](https://sachelaride.github.io/IronGrid/Manual/index.html)
+- [Manual em inglês](https://sachelaride.github.io/IronGrid/Manual/index-en.html)
+- [Manual em espanhol](https://sachelaride.github.io/IronGrid/Manual/index-es.html)
+- [Manual em francês](https://sachelaride.github.io/IronGrid/Manual/index-fr.html)
+- [Manual em alemão](https://sachelaride.github.io/IronGrid/Manual/index-de.html)
+
+O arquivo `index.html` da raiz encaminha para o manual principal. A publicacao
+e atualizada automaticamente a cada push na branch `main` pelo workflow do
+GitHub Pages.
 
 ## Historico de downloads e estatisticas
 
