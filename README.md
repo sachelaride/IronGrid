@@ -38,7 +38,8 @@ tools for switches, routers, servers and other network devices.
 ## Demonstração e manuais
 
 - [Manual principal online](https://sachelaride.github.io/IronGrid/index.html)
-- [Manuais em português, inglês, espanhol, francês e alemão](Manual/)
+- [Manual online em português](https://sachelaride.github.io/IronGrid/Manual/index.html)
+- [Manual online em inglês](https://sachelaride.github.io/IronGrid/Manual/index-en.html)
 - [Imagem oficial no Docker Hub](https://hub.docker.com/r/sachelaride/irongrid-limited-369)
 - [Releases e histórico de downloads](https://github.com/sachelaride/IronGrid/releases)
 
@@ -101,8 +102,8 @@ npm run build
 ./start_irongrid.sh
 ```
 
-Consulte [MANUAL_INSTALACAO_OFFLINE.md](MANUAL_INSTALACAO_OFFLINE.md) para o
-fluxo offline e [CONTRIBUTING.md](CONTRIBUTING.md) para desenvolvimento.
+Consulte o [manual online](https://sachelaride.github.io/IronGrid/Manual/index.html)
+para instalação e operação, e [CONTRIBUTING.md](CONTRIBUTING.md) para desenvolvimento.
 
 ## Exemplos de utilização
 
